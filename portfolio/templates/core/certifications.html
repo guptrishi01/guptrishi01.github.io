@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Certifications — Rishi Gupta{% endblock %}
+
+{% block content %}
+<section class="hero" style="padding-bottom: 3rem;">
+    <div class="container container--narrow">
+        <span class="eyebrow reveal">Credentials</span>
+        <h1 class="hero__title reveal reveal-1" style="font-size: clamp(2.4rem, 5.5vw, 4.4rem);">Certifications<br>&amp; <em>training.</em></h1>
+        <p class="hero__tagline reveal reveal-2" style="max-width: 58ch;">
+            Formal credentials that back up the skills I use day-to-day. These sit alongside my
+            coursework, research, and project experience rather than replacing it.
+        </p>
+    </div>
+</section>
+
+<section class="section" style="padding-top: 1rem;">
+    <div class="container container--narrow">
+        <div class="cert-grid">
+            {% for cert in certifications %}
+            <article class="cert">
+                <div class="cert__icon">
+                    {% if cert.icon == 'database' %}◈{% elif cert.icon == 'code' %}&lt;/&gt;{% elif cert.icon == 'presentation' %}◊{% else %}¶{% endif %}
+                </div>
+                <div>
+                    <div class="cert__issuer">{{ cert.issuer }}</div>
+                    <h3 class="cert__name">{{ cert.name }}</h3>
+                    <p class="cert__desc">{{ cert.description }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

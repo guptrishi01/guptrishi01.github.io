@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Projects — Rishi Gupta{% endblock %}
+
+{% block content %}
+<section class="hero" style="padding-bottom: 3rem;">
+    <div class="container container--narrow">
+        <span class="eyebrow reveal">Portfolio</span>
+        <h1 class="hero__title reveal reveal-1" style="font-size: clamp(2.4rem, 5.5vw, 4.4rem);">Projects &amp;<br><em>experiments.</em></h1>
+        <p class="hero__tagline reveal reveal-2" style="max-width: 58ch;">
+            Every project here includes the problem it solves, the methodology I followed, code you can read,
+            and honest notes on what I actually learned building it. Academic work lives alongside personal
+            experiments — both taught me something.
+        </p>
+    </div>
+</section>
+
+<section class="section" style="padding-top: 2rem;">
+    <div class="container">
+        <div class="cat-divider">
+            <span class="eyebrow" style="color: var(--sage);">Academic</span>
+            <h2 class="section__title" style="margin-bottom: 0.5rem;">Research &amp; coursework</h2>
+            <p style="color: var(--ink-muted); max-width: 60ch;">Graduate and undergraduate research plus coursework projects done in lab or academic settings.</p>
+        </div>
+
+        <div class="project-grid">
+            {% for project in academic_projects %}
+            <article class="pcard pcard--academic">
+                <div class="pcard__category">Academic · {{ project.lab }}</div>
+                <h3 class="pcard__title">{{ project.title }}</h3>
+                <p class="pcard__subtitle">{{ project.subtitle }}</p>
+                <p class="pcard__summary">{{ project.summary|truncatewords:40 }}</p>
+                <div class="pcard__tags">
+                    {% for tag in project.tags|slice:":5" %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </div>
+                <div class="pcard__footer">
+                    <a href="{% url 'core:project_detail' project.slug %}" class="pcard__read">Read more <span class="arrow">→</span></a>
+                    <span class="pcard__date">{{ project.date_range }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <div class="cat-divider">
+            <span class="eyebrow" style="color: var(--rose);">Personal</span>
+            <h2 class="section__title" style="margin-bottom: 0.5rem;">Side projects</h2>
+            <p style="color: var(--ink-muted); max-width: 60ch;">Things I build for myself — usually at the intersection of a problem I have and a technology I want to learn.</p>
+        </div>
+
+        <div class="project-grid">
+            {% for project in personal_projects %}
+            <article class="pcard pcard--personal">
+                <div class="pcard__category">Personal · {{ project.role }}</div>
+                <h3 class="pcard__title">{{ project.title }}</h3>
+                <p class="pcard__subtitle">{{ project.subtitle }}</p>
+                <p class="pcard__summary">{{ project.summary|truncatewords:40 }}</p>
+                <div class="pcard__tags">
+                    {% for tag in project.tags|slice:":5" %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </div>
+                <div class="pcard__footer">
+                    <a href="{% url 'core:project_detail' project.slug %}" class="pcard__read">Read more <span class="arrow">→</span></a>
+                    <span class="pcard__date">{{ project.date_range }}</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

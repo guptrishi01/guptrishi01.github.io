@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title }} — Rishi Gupta{% endblock %}
+{% block description %}{{ project.summary|truncatewords:30 }}{% endblock %}
+
+{% block content %}
+<section class="project-hero">
+    <div class="container container--narrow">
+        <div class="project-hero__cat cat-{{ project.category }}">
+            {% if project.category == 'academic' %}Academic Project · {{ project.lab }}{% else %}Personal Project · {{ project.role }}{% endif %}
+        </div>
+        <h1 class="project-hero__title reveal">{{ project.title }}</h1>
+        <p class="project-hero__subtitle reveal reveal-1">{{ project.subtitle }}</p>
+
+        <div class="pcard__tags" style="margin-bottom: 2rem;">
+            {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+
+        <div class="project-hero__meta">
+            <div>
+                <span class="meta__label">Timeline</span>
+                <span class="meta__value">{{ project.date_range }}</span>
+            </div>
+            <div>
+                <span class="meta__label">Role</span>
+                <span class="meta__value">{{ project.role }}</span>
+            </div>
+            <div>
+                <span class="meta__label">Source</span>
+                <span class="meta__value"><a href="{{ project.github }}" target="_blank" rel="noopener">View on GitHub ↗</a></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="project-section__label">Overview</div>
+        <div class="prose">
+            <p class="lede">{{ project.summary }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="project-section__label">Purpose</div>
+        <h2 class="project-section__title">Why this project exists</h2>
+        <div class="prose">
+            <p>{{ project.purpose }}</p>
+        </div>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="project-section__label">Methodology</div>
+        <h2 class="project-section__title">Workflow &amp; approach</h2>
+        <div class="methodology">
+            {% for s in project.methodology %}
+            <div class="step">
+                <div class="step__num"></div>
+                <div>
+                    <div class="step__title">{{ s.step }}</div>
+                    <div class="step__tools">{{ s.tools }}</div>
+                    <p class="step__detail">{{ s.detail }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="project-section__label">Code</div>
+        <h2 class="project-section__title">A look at the implementation</h2>
+        <p style="color: var(--ink-soft); margin-bottom: 2rem; max-width: 60ch;">{{ project.code_snippet.caption }}.</p>
+        <figure class="code-block">
+            <div class="code-block__head">
+                <span class="code-block__lang">{{ project.code_snippet.language }}</span>
+                <span>{{ project.code_snippet.caption }}</span>
+            </div>
+            <pre><code>{{ project.code_snippet.code }}</code></pre>
+        </figure>
+        <p style="color: var(--ink-muted); font-size: 0.9rem; margin-top: 1.5rem;">
+            Full source and additional modules on <a href="{{ project.github }}" target="_blank" rel="noopener" style="color: var(--amber); border-bottom: 1px solid var(--amber);">GitHub ↗</a>.
+        </p>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="project-section__label">Outputs</div>
+        <h2 class="project-section__title">Results &amp; deliverables</h2>
+        <ul class="list-items">
+            {% for r in project.results %}<li>{{ r }}</li>{% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="project-section">
+    <div class="container container--narrow">
+        <div class="two-col">
+            <div>
+                <div class="project-section__label">Takeaway</div>
+                <h2 class="project-section__title" style="font-size: 1.7rem;">Skills gained</h2>
+                <ul class="list-items">
+                    {% for s in project.skills_gained %}<li>{{ s }}</li>{% endfor %}
+                </ul>
+            </div>
+            <div>
+                <div class="project-section__label">Reflection</div>
+                <h2 class="project-section__title" style="font-size: 1.7rem;">What I learned</h2>
+                <div class="prose">
+                    <p>{{ project.what_i_learned }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="project-section" style="text-align: center; padding: 3rem 0 0;">
+    <div class="container container--narrow">
+        <a href="{% url 'core:projects' %}" class="btn btn--ghost">← All projects</a>
+    </div>
+</section>
+{% endblock %}
