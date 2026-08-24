@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rishi Gupta — Bioinformatics and Machine Learning</title>
+<meta name="description" content="MS Bioinformatics candidate at UNC Charlotte. Comparative Genomics, Machine Learning, Pipeline Engineering.">
+<meta property="og:title" content="Rishi Gupta — Bioinformatics and Machine Learning">
+<meta property="og:description" content="Comparative Genomics, Machine Learning, Pipeline Engineering.">
+<meta name="theme-color" content="#18181B">
+<!-- Social preview. If the repo name or host differs, change BASE in all four URLs below. -->
+<link rel="canonical" href="https://guptrishi01.github.io/">
+<meta property="og:url" content="https://guptrishi01.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://guptrishi01.github.io/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rishi Gupta — MS Bioinformatics, UNC Charlotte. Comparative Genomics, Machine Learning, Pipeline Engineering.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://guptrishi01.github.io/og-card.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230C0A09'/><path d='M0 24 Q8 20 16 23 T32 21 L32 32 L0 32 Z' fill='%234F46E5'/><text x='16' y='20' font-family='Inter,Helvetica,Arial,sans-serif' font-size='15' font-weight='700' fill='%23fff' text-anchor='middle'>RG</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>/* Rishi Gupta — portfolio. Hand-written CSS, no framework, no JavaScript. */
+
+/* ── reset ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body,h1,h2,h3,p,figure,dl,dd,ul,ol{margin:0}
+ul,ol{padding:0}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+
+/* ── tokens ────────────────────────────────────────────── */
+:root{
+  /* modern neutral system — warm stone ground, indigo accent */
+  --grad:linear-gradient(102deg,#4F46E5 0%,#6366F1 50%,#8B5CF6 100%);
+  --orange:#4F46E5;
+  --orange-br:#6366F1;
+  --pink:#4F46E5;
+  --pink-br:#818CF8;
+  --link:#4F46E5;
+  --link-hov:#4338CA;
+
+  --bg:#ffffff;
+  --bg-alt:#FAFAF9;
+  --bg-note:#FAFAF9;
+  --chip-bg:#F5F5F4;
+  --chip-br:#E7E5E4;
+  --chip-tx:#44403C;
+
+  --head:#1C1917;
+  --text:#44403C;
+  --muted:#78716C;
+  --line:#E7E5E4;
+  --line-2:#F5F5F4;
+
+  --ink:#0C0A09;
+  --accent-soft:#EEF2FF;
+  --accent-line:#C7D2FE;
+  --amber:#B45309;
+  --amber-soft:#FFFBEB;
+  --amber-line:#FDE68A;
+
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+  --r:10px;
+  --w:940px;
+  --gut:clamp(18px,4.5vw,32px);
+}
+
+body{background:var(--bg);color:var(--text);font-family:var(--sans);
+  font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--w);margin-inline:auto;padding-inline:var(--gut)}
+
+a{color:var(--link);text-decoration:none}
+a:hover{color:var(--link-hov);text-decoration:underline;text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--pink-br);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+.skip{position:absolute;left:-9999px;background:var(--head);color:#fff;padding:12px 18px;z-index:100}
+.skip:focus{left:0;top:0}
+
+/* ── masthead ──────────────────────────────────────────── */
+.mast{background:var(--grad);color:#fff;padding-block:clamp(30px,4.5vw,44px)}
+.mast .name{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.3rem);font-weight:600;
+  color:#fff;letter-spacing:-.01em;display:inline-block;line-height:1.15}
+.mast .name:hover{color:#fff;text-decoration:none;box-shadow:inset 0 -2px 0 rgba(255,255,255,.6)}
+.mast .tag{color:rgba(255,255,255,.92);font-size:clamp(.95rem,1.6vw,1.06rem);margin-top:7px;max-width:62ch}
+
+/* ── nav + dropdowns (CSS only) ────────────────────────── */
+.nav{background:#fff;position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(37,21,15,.03)}
+.menu{display:flex;flex-wrap:wrap;list-style:none}
+.menu>li{position:relative}
+.menu>li>a{display:block;padding:14px 16px;color:var(--head);font-size:14.5px;font-weight:600;
+  border-bottom:3px solid transparent;white-space:nowrap}
+.menu>li:first-child>a{padding-left:0}
+.menu>li>a:hover{color:var(--link);text-decoration:none;border-bottom-color:var(--orange-br)}
+.menu>li>a[aria-current]{color:var(--link);border-bottom-color:var(--orange)}
+.car{font-size:10px;opacity:.65;margin-left:4px}
+
+.drop{position:absolute;top:100%;left:0;min-width:330px;max-width:min(92vw,420px);
+  background:#fff;border:1px solid var(--line);border-image:var(--grad) 1;border-top:3px solid;
+  box-shadow:0 8px 20px rgba(43,29,20,.14);list-style:none;padding:5px 0;
+  opacity:0;visibility:hidden;transform:translateY(-3px);transition:opacity .13s,transform .13s,visibility .13s;z-index:60}
+.menu>li:first-child .drop{left:0}
+.has:hover>.drop,.has:focus-within>.drop{opacity:1;visibility:visible;transform:none}
+.drop a{display:block;padding:9px 16px;color:var(--text);font-size:14.5px;line-height:1.35}
+.drop a:hover{background:var(--bg-alt);color:var(--link);text-decoration:none}
+@media(max-width:760px){
+  /* Dropdowns stay available on touch: tapping the trigger focuses it and
+     :focus-within reveals a full-width panel under the bar. Without this the
+     project pages are unreachable on a phone. */
+  .nav{position:sticky;top:0;z-index:50}
+  .nav>.wrap{position:relative}
+  .menu>li.has{display:list-item;position:static}
+  .mtrig{padding-inline:12px}
+  .drop{display:block;position:absolute;left:0;right:0;top:100%;width:auto;
+    min-width:0;max-height:min(66vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;
+    opacity:0;visibility:hidden;transform:translateY(-4px);
+    border-radius:0 0 var(--r) var(--r);margin-top:0;padding:6px;
+    box-shadow:0 12px 28px -8px rgba(28,25,23,.22)}
+  .has:focus-within>.drop{opacity:1;visibility:visible;transform:none}
+  .drop a{padding:12px 12px;font-size:14.5px}
+  .drop li+li{border-top:1px solid var(--line-2)}
+}
+
+/* ── back link ─────────────────────────────────────────── */
+.back{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;
+  color:var(--link);background:var(--bg-alt);border:1px solid var(--chip-br);
+  padding:7px 14px 7px 11px;border-radius:999px;margin:0 0 14px;min-height:36px}
+.back:hover{text-decoration:none;color:#fff;background:var(--orange);border-color:var(--orange)}
+.back .arw{font-size:17px;line-height:1;transition:transform .15s ease}
+.back:hover .arw{transform:translateX(-3px)}
+
+/* ── layout ────────────────────────────────────────────── */
+main{padding-block:clamp(32px,5vw,52px) clamp(46px,7vw,72px)}
+section{margin-bottom:clamp(38px,5.5vw,58px)}
+section:last-child{margin-bottom:0}
+
+h1{font-family:var(--serif);font-size:clamp(1.75rem,4vw,2.5rem);font-weight:600;
+  color:var(--head);line-height:1.18;letter-spacing:-.012em;margin-bottom:10px}
+h2{font-family:var(--serif);font-size:clamp(1.25rem,2.4vw,1.55rem);font-weight:600;
+  color:var(--head);line-height:1.28;margin-bottom:14px;padding-bottom:8px;position:relative}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--grad)}
+.prose h2{font-size:clamp(1.12rem,2vw,1.3rem);border-bottom:1px solid var(--line);
+  margin-top:clamp(30px,4vw,42px);margin-bottom:12px}
+h3{font-size:1.06rem;font-weight:600;color:var(--head);margin-bottom:6px}
+
+.crumb{font-size:14px;color:var(--muted);margin-bottom:18px}
+.crumb span{margin-inline:6px;color:var(--line)}
+.meta{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.stand{font-size:clamp(1.05rem,1.8vw,1.18rem);line-height:1.55;color:var(--head);
+  max-width:66ch;padding:16px 20px;background:var(--bg-alt);
+  border-left:4px solid var(--orange);margin-bottom:16px}
+.intro{font-size:17.5px;max-width:70ch;margin-bottom:14px}
+.sec-note{font-size:14.5px;color:var(--muted);margin-top:-6px;margin-bottom:16px}
+
+.prose{max-width:72ch;margin-top:clamp(20px,3vw,30px)}
+.prose p{margin-bottom:14px}
+.prose p:last-child{margin-bottom:0}
+
+/* ── skill chips ───────────────────────────────────────── */
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:clamp(20px,3vw,30px)}
+.chips li{font-size:12.5px;line-height:1;padding:6px 11px;border-radius:999px;
+  background:var(--chip-bg);border:1px solid var(--chip-br);color:var(--chip-tx);
+  font-weight:600;letter-spacing:.005em;white-space:nowrap}
+.list .chips{margin:8px 0 16px}
+
+/* ── definition lists ──────────────────────────────────── */
+.facts{display:grid;border-top:1px solid var(--line);margin-top:20px}
+.facts>div{display:grid;grid-template-columns:180px 1fr;gap:20px;
+  padding-block:12px;border-bottom:1px solid var(--line-2)}
+@media(max-width:640px){.facts>div{grid-template-columns:1fr;gap:3px}}
+.facts dt{font-weight:600;color:var(--head);font-size:15px}
+.facts dd{font-size:16px}
+
+/* ── lists ─────────────────────────────────────────────── */
+.list{list-style:none;border-top:3px solid;border-image:var(--grad) 1}
+.list li{border-bottom:1px solid var(--line);padding-bottom:2px}
+.list a{display:block;padding:16px 0 6px;color:var(--text)}
+.list a:hover{text-decoration:none}
+.list a:hover b{color:var(--link-hov);text-decoration:underline;text-underline-offset:2px}
+.list b{display:block;font-family:var(--serif);font-size:1.15rem;font-weight:600;
+  color:var(--link);margin-bottom:3px;line-height:1.3}
+.list span{display:block;font-size:15.5px;color:var(--text);max-width:78ch}
+
+.plain{list-style:none}
+.plain li{padding-block:12px;border-bottom:1px solid var(--line-2);font-size:16px;max-width:78ch}
+.plain li:last-child{border-bottom:0}
+.plain b{color:var(--head)}
+
+.ol{margin:0 0 14px 22px}
+.ol li{margin-bottom:8px}
+
+/* ── tables ────────────────────────────────────────────── */
+.tbl{width:100%;border-collapse:collapse;margin-block:18px;font-size:15.5px}
+.tbl th,.tbl td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+.tbl thead th{background:var(--bg-alt);color:var(--head);font-weight:600;border-bottom:2px solid var(--pink)}
+.tbl tbody th{font-weight:600;color:var(--head);width:42%}
+.tbl td{font-variant-numeric:tabular-nums}
+@media(max-width:560px){.tbl{font-size:14.5px}.tbl th,.tbl td{padding:8px}}
+
+/* ── note ──────────────────────────────────────────────── */
+.note{background:var(--bg-note);border-left:4px solid var(--orange-br);
+  padding:14px 18px;margin-block:18px;font-size:16px}
+.note b{color:var(--head)}
+
+/* ── figures ───────────────────────────────────────────── */
+figure{margin-block:clamp(20px,3vw,28px)}
+figure img{border:1px solid var(--line);background:#fff;width:100%}
+figure a:hover img{border-color:var(--pink-br)}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.45}
+
+/* ── pager ─────────────────────────────────────────────── */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:20px;
+  margin-top:clamp(38px,5vw,54px);padding-top:22px;border-top:3px solid;border-image:var(--grad) 1}
+@media(max-width:620px){.pager{grid-template-columns:1fr}}
+.pager a{font-family:var(--serif);font-size:1.04rem;font-weight:600;line-height:1.3}
+.pager a.r{text-align:right}
+@media(max-width:620px){.pager a.r{text-align:left}}
+.pager span{display:block;font-family:var(--sans);font-size:12.5px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+
+/* ── footer ────────────────────────────────────────────── */
+footer{background:var(--bg-alt);border-top:4px solid;border-image:var(--grad) 1;
+  padding-block:clamp(34px,5vw,48px) clamp(26px,3.5vw,34px);margin-top:clamp(40px,6vw,64px)}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,46px)}
+@media(max-width:680px){.f-grid{grid-template-columns:1fr;gap:26px}}
+footer h2{font-size:1.05rem;border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:10px}
+footer p{font-size:15.5px;line-height:1.6}
+.copy{margin-top:clamp(26px,3.5vw,34px);padding-top:16px;border-top:1px solid var(--line);
+  font-size:13.5px;color:var(--muted)}
+
+/* ── print ─────────────────────────────────────────────── */
+@media print{
+  :root{--bg:#fff;--bg-alt:#fff;--bg-note:#f6f6f6;--mast:#fff;--head:#000;--text:#222;--muted:#555;--link:#000;--orange:#000}
+  .nav,.skip,.pager,.crumb{display:none}
+  .mast{background:#fff;color:#000;border-bottom:2px solid #000;padding-block:0 12pt}
+  .mast .name{color:#000}.mast .tag{color:#333}
+  body{font-size:10.5pt;line-height:1.4}
+  figure{break-inside:avoid}
+  a{color:#000;text-decoration:underline}
+}
+
+/* ── single-file routing ─────────────────────────────── */
+.page{display:none}
+.page:target{display:block}
+#home{display:block}
+.page:target ~ #home{display:none}
+main{padding-block:clamp(30px,4.5vw,48px) clamp(44px,6.5vw,68px)}
+
+/* ── menu triggers ───────────────────────────────────── */
+.mtrig{display:block;padding:14px 16px;color:var(--head);font-size:14.5px;font-weight:600;
+  font-family:var(--sans);background:none;border:0;border-bottom:3px solid transparent;
+  cursor:pointer;white-space:nowrap;line-height:inherit}
+.mtrig:hover{color:var(--link);border-bottom-color:var(--orange-br)}
+.has:focus-within>.mtrig{color:var(--link);border-bottom-color:var(--orange)}
+.drop{pointer-events:none}
+.has:hover>.drop,.has:focus-within>.drop{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+
+/* ── pager ───────────────────────────────────────────── */
+.pager{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:clamp(36px,5vw,52px);
+  padding-top:22px;border-top:3px solid;border-image:var(--grad) 1}
+@media(max-width:620px){.pager{grid-template-columns:1fr}}
+.pager a{font-family:var(--serif);font-size:1.04rem;font-weight:600;line-height:1.3}
+.pager a.r{text-align:right}
+@media(max-width:620px){.pager a.r{text-align:left}}
+.pager span{display:block;font-family:var(--sans);font-size:12.5px;font-weight:400;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+
+/* ── overview ────────────────────────────────────────── */
+.ov{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:clamp(26px,4vw,48px);align-items:start}
+@media(max-width:820px){.ov{grid-template-columns:1fr}}
+.ov-pic img{width:250px;height:250px;object-fit:cover;border-radius:6px;
+  border:1px solid var(--line);box-shadow:0 2px 10px rgba(37,21,15,.07)}
+@media(max-width:820px){.ov-pic img{width:200px;height:200px}}
+
+/* ── contact strip ───────────────────────────────────── */
+.cstrip{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+.cstrip a{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+  color:var(--link);background:var(--bg-alt);border:1px solid var(--chip-br);
+  padding:9px 16px;border-radius:999px;min-height:44px}
+.cstrip a:hover{text-decoration:none;color:#fff;background:var(--orange);border-color:var(--orange)}
+.cstrip svg{width:18px;height:18px;flex:none}
+footer .cstrip{margin-top:10px}
+
+/* ── merged sub-projects ─────────────────────────────── */
+.sub{border-top:3px solid;border-image:var(--grad) 1;margin-top:clamp(44px,6vw,68px);padding-top:clamp(24px,3vw,32px)}
+.sub:first-of-type{border:0;margin-top:0;padding-top:0}
+.sub>h2{font-family:var(--serif);font-size:clamp(1.35rem,2.8vw,1.72rem);padding-bottom:0;margin-top:0}
+.sub>h2::after{display:none}
+.prose h3{font-family:var(--serif);font-size:clamp(1.06rem,1.9vw,1.2rem);font-weight:600;
+  color:var(--head);margin-top:clamp(26px,3.4vw,34px);margin-bottom:10px}
+
+/* ── flowcharts ──────────────────────────────────────── */
+.flow{margin-block:clamp(18px,2.4vw,24px);max-width:680px}
+.flow svg{width:100%;height:auto;display:block}
+.flowkey{display:flex;flex-wrap:wrap;gap:14px;margin:4px 0 14px;font-size:12.5px;color:var(--muted)}
+.flowkey .k{display:inline-flex;align-items:center;gap:7px}
+.flowkey .k::before{content:"";width:13px;height:13px;border-radius:3px;border:1.4px solid}
+.k-step::before{background:#FFF7F2;border-color:#F0E2DA}
+.k-check::before{background:#FFEFF5;border-color:#F2C9DE}
+.k-gate::before{background:#FFF1E9;border-color:#F7C3A3;border-radius:999px!important}
+
+/* ── interactive flow with linked screenshots ────────── */
+.iflow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;
+  margin-block:clamp(18px,2.4vw,24px);max-width:100%}
+.fn{grid-row:1;display:flex;flex-direction:column;gap:4px;text-align:left;cursor:pointer;
+  background:#FFF7F2;border:1.4px solid #F0E2DA;border-radius:4px;padding:11px 13px;
+  font-family:var(--sans);color:var(--head);min-height:44px;transition:border-color .14s,background .14s}
+.fn-t{font-size:13.5px;font-weight:600;line-height:1.3}
+.fn-d{font-size:11.5px;color:var(--muted);line-height:1.35}
+.fn-check{background:#FFEFF5;border-color:#F2C9DE}.fn-check .fn-t{color:#AE1157}
+.fn-gate{background:#FFF1E9;border-color:#F7C3A3;border-radius:999px}.fn-gate .fn-t{color:#B0450A}
+.fn-io{background:#fff;border-color:#D9CEC6}
+.fn:hover,.fn:focus-visible{border-color:var(--orange);background:#fff}
+.fs{grid-column:1/-1;grid-row:2;margin:0;opacity:0;visibility:hidden;height:0;overflow:hidden;
+  transition:opacity .15s}
+.fs img{border:1px solid var(--line);border-radius:4px;width:100%}
+.fs figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
+.fs1{opacity:1;visibility:visible;height:auto}
+.fn:hover ~ .fs,.fn:focus-visible ~ .fs{opacity:0;visibility:hidden;height:0}
+#fn1:hover ~ .fs1,#fn1:focus-visible ~ .fs1,
+#fn2:hover ~ .fs2,#fn2:focus-visible ~ .fs2,
+#fn4:hover ~ .fs3,#fn4:focus-visible ~ .fs3{opacity:1;visibility:visible;height:auto}
+.iflow-hint{font-size:12.5px;color:var(--muted);margin:-8px 0 18px}
+
+/* ── print ───────────────────────────────────────────── */
+@media print{.page{display:block!important}.nav,.skip,.pager,.back{display:none}}
+
+/* ── figures: wider, and click to enlarge (no JS) ────── */
+.prose{max-width:none}
+.prose p,.prose .ol,.prose h2,.prose h3,.prose .note,.prose .flowkey,.prose .iflow-hint{max-width:72ch}
+.prose figure,.prose .figs,.prose .tbl{max-width:100%}
+.fg{margin-block:clamp(22px,3vw,30px)}
+.zx{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.zin{display:block;cursor:zoom-in}
+.zin img{border:1px solid var(--line);border-radius:4px;background:#fff;width:100%}
+.zin:hover img{border-color:var(--orange)}
+.zx:checked ~ .zin{position:fixed;inset:0;z-index:200;margin:0;padding:clamp(16px,3vw,40px);
+  background:rgba(37,21,15,.93);display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.zx:checked ~ .zin img{max-height:92vh;max-width:96vw;width:auto;height:auto;
+  object-fit:contain;border:0;border-radius:2px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.zx:checked ~ .zin::after{content:"Click anywhere to close";position:fixed;bottom:18px;left:0;right:0;
+  text-align:center;color:rgba(255,255,255,.8);font-size:13px;font-family:var(--sans)}
+.zx:focus-visible ~ .zin img{outline:2px solid var(--pink-br);outline-offset:2px}
+
+/* ── screenshot gallery ──────────────────────────────── */
+.gal{margin-block:clamp(20px,3vw,28px);position:relative}
+.gx{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.gtabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.gtabs label{font-size:13.5px;font-weight:600;padding:8px 15px;border-radius:999px;cursor:pointer;
+  background:var(--bg-alt);border:1px solid var(--chip-br);color:var(--link);min-height:40px;
+  display:inline-flex;align-items:center}
+.gtabs label:hover{background:#fff;border-color:var(--orange)}
+.gs{display:none;margin:0}
+.gs img{width:100%;border:1px solid var(--line);border-radius:4px;background:#fff}
+.gs .gcap{margin-top:12px;font-size:16px;color:var(--text)}
+.gs .gcap b{color:var(--head)}
+#gal1:checked ~ .gs1,#gal2:checked ~ .gs2,#gal3:checked ~ .gs3,
+#gal4:checked ~ .gs4{display:block}
+#gal1:checked ~ .gtabs label[for=gal1],#gal2:checked ~ .gtabs label[for=gal2],
+#gal3:checked ~ .gtabs label[for=gal3],
+#gal4:checked ~ .gtabs label[for=gal4]{background:var(--orange);border-color:var(--orange);color:#fff}
+.gnav{display:flex;gap:10px;margin-top:16px}
+.gnav label{font-size:13.5px;font-weight:600;padding:8px 16px;border-radius:999px;cursor:pointer;
+  background:var(--bg-alt);border:1px solid var(--chip-br);color:var(--link);min-height:40px;
+  display:inline-flex;align-items:center}
+.gnav label:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+
+/* ── typography and rhythm ───────────────────────────── */
+body{font-size:17px;line-height:1.75}
+main{padding-block:18px clamp(44px,6.5vw,68px)}
+
+h1{font-size:clamp(1.85rem,3.6vw,2.5rem);line-height:1.2;margin-bottom:8px}
+.prose h2{font-family:var(--serif);font-size:clamp(1.32rem,2.4vw,1.62rem);font-weight:600;
+  line-height:1.3;color:var(--head);border-bottom:0;position:relative;
+  margin-top:clamp(38px,5vw,54px);margin-bottom:16px;padding-bottom:9px}
+.prose h2::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
+  background:var(--grad);opacity:.85}
+.prose h3{font-family:var(--serif);font-size:clamp(1.1rem,1.9vw,1.26rem);font-weight:600;
+  line-height:1.35;color:var(--head);margin-top:clamp(30px,3.8vw,40px);margin-bottom:12px;
+  padding-bottom:6px;border-bottom:1px solid var(--line)}
+.sub>h2{font-size:clamp(1.45rem,2.8vw,1.8rem);padding-bottom:0}
+.sub>h2::after{display:none}
+
+.prose p{margin-bottom:17px;line-height:1.8}
+.prose .ol{margin:0 0 18px 22px}
+.prose .ol li{margin-bottom:11px;line-height:1.75}
+.meta{font-size:14px;margin-bottom:12px;line-height:1.6}
+.chips{margin-bottom:clamp(16px,2.4vw,22px)}
+
+/* everything shares one left edge */
+.prose>*,.prose .fg,.prose .tbl,.prose .flow,.prose .gal,.prose .note{margin-left:0;margin-right:0}
+.flow{max-width:100%}
+.note{padding:16px 20px;margin-block:20px;line-height:1.75}
+.tbl{margin-block:20px;font-size:15.5px}
+.tbl th,.tbl td{padding:11px 13px;line-height:1.6}
+figcaption{font-size:14px;line-height:1.65;margin-top:10px}
+.gcap{line-height:1.75}
+.flowkey{margin:2px 0 16px}
+.flow-lhr{max-width:820px;margin-inline:auto}
+.flow-lhr svg{width:100%;height:auto}
+
+/* ── captions span the actual image width ────────────── */
+.fg{width:fit-content;max-width:100%}
+.zin{display:block;width:fit-content;max-width:100%}
+.zin img{width:auto;max-width:100%;height:auto}
+.fg figcaption{max-width:100%;width:100%}
+.gs{width:fit-content;max-width:100%}
+.gs .zin img{width:auto;max-width:100%}
+.gs .gcap{max-width:100%;width:100%}
+.flow figcaption{max-width:100%}
+/* zoomed overlay must ignore fit-content sizing */
+.zx:checked ~ .zin{width:auto;max-width:none}
+
+/* ── figures: single column, full width ──────────────── */
+.figs{display:block}
+.prose .fg,.prose .fg.wide,.figs .fg{float:none;clear:both;width:100%;max-width:100%;
+  margin:clamp(22px,3vw,30px) 0}
+.prose .fg .zin,.prose .fg .zin img{width:100%;max-width:100%}
+.fg figcaption{max-width:100%}
+
+/* ── key findings side by side ───────────────────────── */
+.noterow{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:clamp(14px,2vw,18px);margin-block:clamp(20px,2.6vw,26px);align-items:stretch}
+.noterow .note{margin:0;height:100%;font-size:15px;line-height:1.7;padding:15px 18px}
+@media(max-width:700px){.noterow{grid-template-columns:1fr}}
+.k-main::before{background:#C4B6AB;border-color:#C4B6AB;border-radius:2px!important}
+.k-inv::before{background:#D4166B;border-color:#D4166B;border-radius:2px!important}
+.k-brk::before{background:#E8461A;border-color:#E8461A;border-radius:2px!important}
+.flow-lhr{max-width:100%}
+
+/* ── overview: portrait scales to the text block ─────── */
+.ov{display:block}
+.ovrow{display:flex;gap:clamp(26px,4vw,48px);align-items:stretch}
+.ovtext{flex:1 1 auto;min-width:0}
+.ovtext .intro{margin-top:0}
+.ovtext .facts{margin-bottom:0}
+.ov-pic{flex:0 0 clamp(240px,24vw,300px);margin:0;display:flex;align-items:stretch}
+.ov-pic img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+@media(max-width:820px){
+  .ovrow{display:block}
+  .ov-pic{display:block;margin-top:24px}
+  .ov-pic img{height:auto;width:220px}
+}
+
+/* ── labeling-parameter table: widen Value column ───── */
+.tbl-lab th:nth-child(1),.tbl-lab td:nth-child(1){width:20%}
+.tbl-lab th:nth-child(2),.tbl-lab td:nth-child(2){width:33%;white-space:nowrap}
+.tbl-lab th:nth-child(3),.tbl-lab td:nth-child(3){width:47%}
+@media(max-width:620px){
+  .tbl-lab th,.tbl-lab td{width:auto!important;white-space:normal!important}
+}
+
+/* ── paragraph that should match figure width ────────── */
+.prose p.fullw{max-width:100%}
+
+/* ── phylogenetic tree with inset legend ─────────────── */
+.treebox{position:relative}
+.treekey{position:absolute;right:2.5%;bottom:3%;width:12%;min-width:78px;max-width:118px;
+  height:auto;border:1px solid var(--line);border-radius:3px;padding:3px;
+  background:rgba(255,255,255,.94);box-shadow:0 1px 4px rgba(37,21,15,.10)}
+@media(max-width:620px){.treekey{width:20%;min-width:64px}}
+
+/* ══════════════════════════════════════════════════════════
+   MODERN THEME LAYER
+   Neutral surfaces, hairline rules, tight Inter, soft radii.
+   ══════════════════════════════════════════════════════════ */
+body{background:var(--bg);font-size:16.5px;line-height:1.72;
+  font-feature-settings:"cv02","cv03","cv04","ss01";letter-spacing:-.003em}
+
+/* ── masthead: dark ground + layered waves ─────────────── */
+.mast{position:relative;overflow:hidden;background:var(--ink);
+  padding-block:clamp(46px,6.5vw,74px) clamp(84px,10.5vw,130px);
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.mast-bg{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.mast .wrap{position:relative;z-index:1}
+.mast .name{font-family:var(--sans);font-weight:700;letter-spacing:-.033em;
+  font-size:clamp(1.9rem,4.4vw,2.7rem);line-height:1.08}
+.mast .name:hover{box-shadow:none;opacity:.86}
+.mast .tag{color:rgba(255,255,255,.66);font-size:clamp(.95rem,1.6vw,1.04rem);
+  margin-top:12px;max-width:60ch;letter-spacing:-.004em}
+
+/* ── nav ───────────────────────────────────────────────── */
+.nav{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(12px);
+  -webkit-backdrop-filter:saturate(180%) blur(12px);box-shadow:none;border-bottom:1px solid var(--line)}
+.menu>li>a,.mtrig{font-size:14px;font-weight:500;letter-spacing:-.008em;
+  padding:15px 14px;border-bottom:0;color:var(--muted);border-radius:0}
+.menu>li:first-child>a{padding-left:0}
+.menu>li>a:hover,.mtrig:hover{color:var(--head);border-bottom-color:transparent}
+.has:focus-within>.mtrig{color:var(--head);border-bottom-color:transparent}
+.drop{border:1px solid var(--line);border-image:none;border-top:1px solid var(--line);
+  border-radius:var(--r);box-shadow:0 4px 6px -2px rgba(28,25,23,.05),0 12px 28px -6px rgba(28,25,23,.14);
+  padding:6px;margin-top:2px;min-width:340px}
+.drop a{border-radius:7px;padding:9px 11px;font-size:14px;color:var(--text)}
+.drop a:hover{background:var(--bg-alt);color:var(--head)}
+
+/* ── headings: sans, tight, hairline rules ─────────────── */
+h1{font-weight:700;letter-spacing:-.032em;font-size:clamp(1.9rem,3.6vw,2.45rem);line-height:1.13}
+h2,.prose h2,.sub>h2{font-weight:650;letter-spacing:-.024em}
+h2::after,.prose h2::after{display:none}
+h2{border-bottom:1px solid var(--line);padding-bottom:10px}
+.prose h2{border-bottom:1px solid var(--line);font-size:clamp(1.16rem,2vw,1.35rem);
+  padding-bottom:10px;margin-top:clamp(38px,5vw,54px);margin-bottom:18px}
+.prose h3{font-size:clamp(1rem,1.7vw,1.1rem);font-weight:600;letter-spacing:-.016em;
+  border-bottom:0;color:var(--head);text-transform:none;
+  margin-top:clamp(28px,3.6vw,36px);margin-bottom:10px;padding-bottom:0}
+.sub{border-top:1px solid var(--line);border-image:none}
+.sub>h2{font-size:clamp(1.3rem,2.5vw,1.6rem);border-bottom:0;padding-bottom:0}
+.meta{font-size:13.5px;letter-spacing:-.002em}
+
+/* ── chips: square-ish, quiet ──────────────────────────── */
+.chips li{border-radius:6px;font-weight:500;font-size:12px;padding:5px 9px;
+  background:var(--chip-bg);border:1px solid var(--chip-br);color:var(--chip-tx);
+  letter-spacing:-.002em}
+
+/* ── pills and buttons ─────────────────────────────────── */
+.back,.cstrip a{border-radius:8px;font-weight:500;background:#fff;border:1px solid var(--line);
+  color:var(--text);box-shadow:0 1px 2px rgba(28,25,23,.04)}
+.back:hover,.cstrip a:hover{background:var(--head);border-color:var(--head);color:#fff}
+.gtabs label,.gnav label{border-radius:8px;font-weight:500;font-size:13px;
+  background:#fff;border:1px solid var(--line);color:var(--text);
+  box-shadow:0 1px 2px rgba(28,25,23,.04)}
+.gtabs label:hover,.gnav label:hover{background:var(--bg-alt);border-color:var(--muted);color:var(--head)}
+#gal1:checked ~ .gtabs label[for=gal1],#gal2:checked ~ .gtabs label[for=gal2],
+#gal3:checked ~ .gtabs label[for=gal3],#gal4:checked ~ .gtabs label[for=gal4]{
+  background:var(--head);border-color:var(--head);color:#fff}
+
+/* ── notes: quiet card, accent hairline ────────────────── */
+.note{background:var(--bg-alt);border:1px solid var(--line);border-left:3px solid var(--orange);
+  border-radius:var(--r);padding:15px 18px;font-size:15.5px}
+.note.warn{background:var(--amber-soft);border-color:var(--amber-line);border-left-color:var(--amber)}
+.note.warn b{color:var(--amber)}
+.stand{background:var(--accent-soft);border:1px solid var(--accent-line);
+  border-left:3px solid var(--orange);border-radius:var(--r);color:var(--head)}
+
+/* ── tables ────────────────────────────────────────────── */
+.tbl{font-size:14.5px;border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;border-collapse:separate;border-spacing:0}
+.tbl thead th{background:var(--bg-alt);border-bottom:1px solid var(--line);
+  font-weight:600;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--muted)}
+.tbl th,.tbl td{border-bottom:1px solid var(--line-2)}
+.tbl tbody tr:last-child td,.tbl tbody tr:last-child th{border-bottom:0}
+.tbl td{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+
+/* ── figures ───────────────────────────────────────────── */
+figure img,.zin img,.gs img,.fs img{border-radius:var(--r);border:1px solid var(--line)}
+.zin:hover img{border-color:var(--muted)}
+figcaption,.gcap{font-size:13.5px;color:var(--muted)}
+.gs .gcap{font-size:15px;color:var(--text)}
+.zx:checked ~ .zin{background:rgba(12,10,9,.94)}
+
+/* ── flow key swatches ─────────────────────────────────── */
+.k-step::before{background:#FAFAF9;border-color:#E7E5E4}
+.k-check::before{background:#EEF2FF;border-color:#C7D2FE}
+.k-gate::before{background:#FFFBEB;border-color:#FDE68A}
+.k-main::before{background:#A8A29E;border-color:#A8A29E}
+.k-inv::before{background:#4F46E5;border-color:#4F46E5}
+.k-brk::before{background:#D97706;border-color:#D97706}
+.fn{background:#FAFAF9;border-color:#E7E5E4;border-radius:8px}
+.fn-check{background:#EEF2FF;border-color:#C7D2FE}.fn-check .fn-t{color:#4338CA}
+.fn-gate{background:#FFFBEB;border-color:#FDE68A}.fn-gate .fn-t{color:#B45309}
+.fn-io{background:#fff;border-color:#D6D3D1}
+.fn:hover,.fn:focus-visible{border-color:var(--orange);background:#fff}
+
+/* ── overview ──────────────────────────────────────────── */
+.ov-pic img{border-radius:14px;border:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(28,25,23,.05),0 10px 26px -8px rgba(28,25,23,.16)}
+.facts{border-top:1px solid var(--line)}
+.facts dt{font-size:12.5px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--muted)}
+.facts dd{font-size:15.5px;color:var(--text)}
+.intro{font-size:17px;letter-spacing:-.008em;color:var(--text)}
+
+/* ── pager and footer: hairlines, no gradient ──────────── */
+.pager{border-top:1px solid var(--line);border-image:none}
+.pager a{font-weight:600;letter-spacing:-.016em;font-size:1rem;color:var(--head)}
+.pager a:hover{color:var(--link)}
+.pager span{font-size:11.5px;letter-spacing:.07em;font-weight:500}
+footer{background:var(--bg-alt);border-top:1px solid var(--line);border-image:none}
+footer h2{border-bottom:1px solid var(--line);font-weight:600}
+.list{border-top:1px solid var(--line);border-image:none}
+.list b{font-weight:600;letter-spacing:-.018em;color:var(--head)}
+.list a:hover b{color:var(--link)}
+
+/* ── misc ──────────────────────────────────────────────── */
+.treekey{border-radius:8px;border-color:var(--line)}
+.skip{background:var(--ink);border-radius:0 0 8px 0}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+code,kbd,samp{font-family:var(--mono);font-size:.92em}
+
+@media print{
+  .mast{background:#fff!important}.mast-bg{display:none}
+  .mast .name{color:#000}.mast .tag{color:#333}
+}
+
+/* ── literature tool gallery (second radio group) ────── */
+#lit1:checked ~ .ls1,#lit2:checked ~ .ls2,#lit3:checked ~ .ls3{display:block}
+#lit1:checked ~ .gtabs label[for=lit1],#lit2:checked ~ .gtabs label[for=lit2],
+#lit3:checked ~ .gtabs label[for=lit3]{background:var(--head);border-color:var(--head);color:#fff}
+
+/* ── footer site index ───────────────────────────────── */
+.fmap{margin-top:clamp(26px,4vw,36px);padding-top:clamp(20px,3vw,26px);
+  border-top:1px solid var(--line)}
+.fmap h3{font-size:11.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 12px}
+.fmap ul{list-style:none;margin:0;padding:0;display:grid;gap:2px 26px;
+  grid-template-columns:repeat(auto-fill,minmax(238px,1fr))}
+.fmap a{display:block;padding:7px 0;font-size:14.5px;color:var(--text);text-decoration:none}
+.fmap a:hover{color:var(--link)}
+@media print{.fmap{display:none}}
+
+/* ── pager: the empty slot keeps the two-column alignment on desktop,
+      but becomes a phantom row once the grid collapses ── */
+@media(max-width:700px){.pager>span:empty{display:none}}
+
+/* ── AMR results gallery (third radio group) ─────────── */
+#res1:checked ~ .rs1,#res2:checked ~ .rs2,#res3:checked ~ .rs3,#res4:checked ~ .rs4{display:block}
+#res1:checked ~ .gtabs label[for=res1],#res2:checked ~ .gtabs label[for=res2],
+#res3:checked ~ .gtabs label[for=res3],#res4:checked ~ .gtabs label[for=res4]{
+  background:var(--head);border-color:var(--head);color:#fff}
+
+/* ── wastewater results gallery (fourth radio group) ─── */
+#ww1:checked ~ .ws1,#ww2:checked ~ .ws2,#ww3:checked ~ .ws3{display:block}
+#ww1:checked ~ .gtabs label[for=ww1],#ww2:checked ~ .gtabs label[for=ww2],
+#ww3:checked ~ .gtabs label[for=ww3]{background:var(--head);border-color:var(--head);color:#fff}
+
+/* ── strain verification gallery (fifth radio group) ─── */
+#esv1:checked ~ .es1,#esv2:checked ~ .es2,#esv3:checked ~ .es3,#esv4:checked ~ .es4{display:block}
+#esv1:checked ~ .gtabs label[for=esv1],#esv2:checked ~ .gtabs label[for=esv2],
+#esv3:checked ~ .gtabs label[for=esv3],#esv4:checked ~ .gtabs label[for=esv4]{
+  background:var(--head);border-color:var(--head);color:#fff}
+</style><link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="favicon.png">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="mast"><svg class="mast-bg" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="mw1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6366F1"/><stop offset="100%" stop-color="#A78BFA"/></linearGradient>
+<linearGradient id="mw2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4F46E5"/><stop offset="100%" stop-color="#7C3AED"/></linearGradient>
+<linearGradient id="mw3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4338CA"/><stop offset="100%" stop-color="#6D28D9"/></linearGradient>
+<radialGradient id="mgl" cx="82%" cy="8%" r="62%"><stop offset="0%" stop-color="#818CF8" stop-opacity=".38"/><stop offset="100%" stop-color="#818CF8" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1440" height="320" fill="url(#mgl)"/>
+<path d="M0,214 C240,150 470,286 716,236 C962,186 1204,252 1440,200 L1440,320 L0,320 Z" fill="url(#mw1)" opacity=".26"/>
+<path d="M0,252 C206,202 424,300 702,262 C980,224 1222,286 1440,244 L1440,320 L0,320 Z" fill="url(#mw2)" opacity=".32"/>
+<path d="M0,288 C262,246 520,312 782,284 C1044,256 1246,300 1440,276 L1440,320 L0,320 Z" fill="url(#mw3)" opacity=".50"/>
+</svg><div class="wrap">
+  <a class="name" href="#home">Rishi Gupta</a>
+  <p class="tag">MS Bioinformatics, UNC Charlotte &middot; Comparative Genomics, Machine Learning, Pipeline Engineering</p>
+</div></header>
+<nav class="nav" aria-label="Primary"><div class="wrap"><ul class="menu">
+  <li><a href="#home">Overview</a></li>
+  <li class="has"><button type="button" class="mtrig" aria-haspopup="true">Work <span class="car" aria-hidden="true">&#9662;</span></button><ul class="drop"><li><a href="#plaque-detection">PFU Plaque Detection Classifier</a></li><li><a href="#amr-prediction">Antimicrobial Resistance Prediction</a></li><li><a href="#wastewater-surveillance">Wastewater AMR Surveillance</a></li><li><a href="#panel-optimizer">Liquid Host Range Optimizer</a></li><li><a href="#supplementary-analysis">Supplementary Analysis</a></li><li><a href="#supplementary-tools">Supplementary Tools</a></li></ul></li>
+  <li class="has"><button type="button" class="mtrig" aria-haspopup="true">Research <span class="car" aria-hidden="true">&#9662;</span></button><ul class="drop"><li><a href="#surgeonfish">Visual Phenomics and Phylogenetic Inference</a></li><li><a href="#yeast">Sourdough Yeast Domestication Genomics</a></li></ul></li>
+  <li><a href="#contact">Contact</a></li>
+</ul></div></nav>
+<main id="main"><div class="wrap">
+
+<section class="page" id="plaque-detection">
+  <h1>PFU Plaque Detection Classifier</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; ResNet, Optuna, Google Colab</p>
+  <ul class="chips"><li>PyTorch</li><li>ResNet</li><li>Optuna</li><li>Google Colab</li><li>GCS</li><li>scikit-learn</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>Repurposed an existing binary image classifier used for colony detection to instead detect plaques in microbiological assays. This model serves as the first stage of a three-model plaque enumeration pipeline.</p>
+<p><b>Approach:</b> Extracted 9,558 well images from 105 experimental folders in Google Drive and added them to the company&rsquo;s GCS bucket. Those images were loaded into the website&rsquo;s PFU annotation tool for people to count wells. Annotators had three options: enter 0 if there are no plaques in the image, count each plaque and submit, or enter TNTC &mdash; too numerous to count &mdash; if individual plaques were bunched together into larger plaques and could not be identified properly, or if there were a great many of them (at least 80).</p>
+<p>With newly annotated images and pre-existing ones, roughly 1,000 images were used to fine-tune a ResNet classifier with an Optuna-driven hyperparameter search in a reproducible Google Colab pipeline.</p>
+<p>Split: <b>747 train / 121 validation / 124 test images</b>.</p>
+
+<h2>Workflow</h2>
+<p class="flowkey"><span class="k k-step">Processing step</span><span class="k k-check">Verification / QC</span><span class="k k-gate">Decision or gate</span></p>
+<figure class="flow"><svg viewBox="0 0 660 642" width="100%" role="img" aria-label="Eight-step notebook workflow from Drive setup through to results"><g><rect x="1" y="4" width="658" height="46" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="31.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Set up Google Drive structure</text></g><line x1="330" y1="50" x2="330" y2="69" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 68 L330 75 L335 68Z" fill="#D6D3D1"/><g><rect x="1" y="76" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="100" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Config and checkpoint status cell</text><text x="330" y="119" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Mounts Drive, installs dependencies, checks for existing results and decides what to run or skip</text></g><line x1="330" y1="134" x2="330" y2="153" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 152 L330 159 L335 152Z" fill="#D6D3D1"/><g><rect x="1" y="160" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="184" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Load and preprocess data</text><text x="330" y="203" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">CSV of well image names and annotated counts</text></g><line x1="330" y1="218" x2="330" y2="237" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 236 L330 243 L335 236Z" fill="#D6D3D1"/><g><rect x="1" y="244" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="268" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Split the data</text><text x="330" y="287" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Held-out test experiments plus a grouped train/validation split</text></g><line x1="330" y1="302" x2="330" y2="321" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 320 L330 327 L335 320Z" fill="#D6D3D1"/><g><rect x="1" y="328" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="352" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Run hyperparameter search</text><text x="330" y="371" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Tests different model settings to find the best configuration</text></g><line x1="330" y1="386" x2="330" y2="405" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 404 L330 411 L335 404Z" fill="#D6D3D1"/><g><rect x="1" y="412" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="436" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Run final training</text><text x="330" y="455" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Trains with the best settings across multiple seeds</text></g><line x1="330" y1="470" x2="330" y2="489" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 488 L330 495 L335 488Z" fill="#D6D3D1"/><g><rect x="1" y="496" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="520" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Run rarefaction analysis</text><text x="330" y="539" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Estimates whether more annotated data would improve the model</text></g><line x1="330" y1="554" x2="330" y2="573" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 572 L330 579 L335 572Z" fill="#D6D3D1"/><g><rect x="1" y="580" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="604" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">View results</text><text x="330" y="623" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Confusion matrices and training plots</text></g></svg><figcaption>The checkpoint cell exists because Colab runtimes disconnect &mdash; it decides what to re-run and what to skip.</figcaption></figure>
+
+<h2>Results</h2>
+<table class="tbl"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Accuracy</td><td>0.9919</td></tr><tr><td>MCC</td><td>0.9842</td></tr><tr><td>Recall</td><td>1.0000</td></tr><tr><td>Precision</td><td>0.9851</td></tr></tbody></table>
+<figure class="fg wide"><input type="checkbox" id="z1" class="zx"><label class="zin" for="z1" title="Click to enlarge"><img width="1400" height="605"  alt="Average and standard-deviation confusion matrices across seeds for the plaque classifier." loading="lazy" decoding="async" src="assets/average-and-standard-deviation-confusion-matrices-1702d6.jpg"></label><figcaption>Confusion matrix averaged across seeds, with the per-cell standard deviation alongside. Roughly 0.3 misclassifications per class per seed on 124 test images.</figcaption></figure>
+<figure class="fg"><input type="checkbox" id="z2" class="zx"><label class="zin" for="z2" title="Click to enlarge"><img width="1400" height="840"  alt="Rarefaction curve plotting test MCC against total annotated images with a fitted saturation curve approaching 0.990." loading="lazy" decoding="async" src="assets/rarefaction-curve-plotting-test-mcc-against-67245f.jpg"></label><figcaption>Rarefaction analysis. The fitted ceiling sits close to current performance, so further annotation was not expected to move the model.</figcaption></figure>
+
+<h3>Grad-CAM &mdash; what the model is looking at</h3>
+<p>Grad-CAM overlays show the classifier in action on held-out wells: the heat map marks the pixels driving the prediction.</p>
+<figure class="fg wide"><input type="checkbox" id="z3" class="zx"><label class="zin" for="z3" title="Click to enlarge"><img width="458" height="224"  alt="Grad-CAM overlay on a well containing plaques, with activation concentrated on the plaque cluster." loading="lazy" decoding="async" src="assets/grad-cam-overlay-on-a-well-58b4d2.jpg"></label><figcaption>A well correctly called <b>has plaques</b> at p = 1.00. Activation sits squarely on the plaque cluster rather than on the well edge or background.</figcaption></figure><figure class="fg wide"><input type="checkbox" id="z4" class="zx"><label class="zin" for="z4" title="Click to enlarge"><img width="458" height="224"  alt="Grad-CAM overlay on an empty well, with diffuse low activation across the field." loading="lazy" decoding="async" src="assets/grad-cam-overlay-on-an-empty-fd8c44.jpg"></label><figcaption>A well correctly called <b>no plaques</b> at p = 0.01. Activation is diffuse with no focal region, which is what an empty well should look like.</figcaption></figure>
+
+<h2>Key findings</h2>
+<div class="noterow"><p class="note"><b>Identified a data leakage bug before it could inflate reported accuracy.</b> A random split allowed images from the same physical assay plate to appear in both training and test sets. I redesigned the split and built in leakage checks to guarantee zero contamination.</p><p class="note"><b>Diagnosed a confounding factor that inflated metrics.</b> The well images all come from 3&times;4 panels. After an initial run the model returned roughly 0.98&ndash;0.99 MCC on its own, which warranted investigation. Auditing the results showed most identified plaques came from column 4 &mdash; the last column of the panel &mdash; meaning the model could have been using position rather than image content: the well has plaques if it is in column 4, otherwise 0. Running that rule alone scored a test MCC of 0.82.</p><p class="note"><b>The model was cleared of relying on that shortcut.</b> A stratified test built specifically to defeat the positional bias showed the model still scored 92&ndash;97% on those adversarial cases, confirming genuine visual plaque detection rather than pattern-matching on position.</p></div>
+</div>
+  <nav class="pager" aria-label="More">
+    <span></span>
+    <a class="r" href="#amr-prediction"><span>Next</span>Antimicrobial Resistance Prediction</a>
+  </nav>
+</section>
+
+<section class="page" id="amr-prediction">
+  <h1>Antimicrobial Resistance Prediction</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; Gradient boosting, Optuna, genome annotation</p>
+  <ul class="chips"><li>scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>Optuna</li><li>k-mer profiling</li><li>BioPython</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>To create a production-worthy configuration for an existing k-mer based classifier model that predicts whether an <i>Escherichia coli</i> strain is resistant or susceptible to bactrim. The goal is that after running the model and obtaining the final feature set, those k-mers are traced back to the strains to identify the coding regions and genes the model learned in predicting resistance.</p>
+
+<h3>How the labels were created</h3>
+<p>Every strain needs a resistant or susceptible label before any modeling can happen, and that label is produced from two numbers.</p>
+<p>The <b>CLSI breakpoint</b> is the clinical concentration cutoff. For bactrim that is <b>4 &micro;g/mL</b> and it was taken as given rather than tuned.</p>
+<p>The <b>IC value</b> is the concentration needed to kill off a given percentage of the bacteria &mdash; IC85, for instance, is the concentration required to kill 85% of the <i>E. coli</i>. My mentor generated the MIC curves from experimental strain data and provided values from IC1 to IC99 for each strain. The default threshold used was <b>IC90</b> but after experimenting with different thresholds, <b>IC83</b> provided the best metrics.</p>
+<p class="note"><b>The labeling rule:</b> For each strain&rsquo;s IC83 value, if it was greater than or equal to the CLSI breakpoint of 4 &micro;g/mL, the strain was labeled <b>resistant</b> to bactrim; otherwise it was labeled <b>susceptible</b>.</p>
+<table class="tbl tbl-lab"><thead><tr><th>Parameter</th><th>Value</th><th>How it was set</th></tr></thead><tbody><tr><td>CLSI breakpoint</td><td>4 &micro;g/mL</td><td>Clinical standard for bactrim, taken as given</td></tr><tr><td>IC threshold</td><td>IC83</td><td>Experimental &mdash; started at IC90, swept to find the best performer</td></tr><tr><td>Label rule</td><td>IC &ge; 4 &micro;g/mL &rarr; resistant</td><td>Applied to all strains</td></tr></tbody></table>
+
+<h2>Workflow</h2>
+<p class="flowkey"><span class="k k-step">Processing step</span><span class="k k-check">Verification / QC</span><span class="k k-gate">Decision or gate</span></p>
+<figure class="flow"><svg viewBox="0 0 660 798" width="100%" role="img" aria-label="Ten-stage k-mer classifier pipeline from setup through to saved artifact"><g><rect x="1" y="4" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="28" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Setup and configuration</text><text x="330" y="47" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Antibiotic, k-mer size, label thresholds</text></g><line x1="330" y1="62" x2="330" y2="81" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 80 L330 87 L335 80Z" fill="#D6D3D1"/><g><rect x="1" y="88" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="112" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">k-mer profiling</text><text x="330" y="131" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">k = 11, presence/absence across all genomes</text></g><line x1="330" y1="146" x2="330" y2="165" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 164 L330 171 L335 164Z" fill="#D6D3D1"/><g><rect x="1" y="172" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="196" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Label alignment</text><text x="330" y="215" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Join genomes to phenotype by IC threshold and breakpoint</text></g><line x1="330" y1="230" x2="330" y2="249" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 248 L330 255 L335 248Z" fill="#D6D3D1"/><g><rect x="1" y="256" width="658" height="46" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="283.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Train / test split</text></g><line x1="330" y1="302" x2="330" y2="321" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 320 L330 327 L335 320Z" fill="#D6D3D1"/><g><rect x="1" y="328" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="352" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Screen features</text><text x="330" y="371" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Drop uninformative k-mers</text></g><line x1="330" y1="386" x2="330" y2="405" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 404 L330 411 L335 404Z" fill="#D6D3D1"/><g><rect x="1" y="412" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="436" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Tune #1</text><text x="330" y="455" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Optuna search on the screened set</text></g><line x1="330" y1="470" x2="330" y2="489" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 488 L330 495 L335 488Z" fill="#D6D3D1"/><g><rect x="1" y="496" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="520" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Deplete features</text><text x="330" y="539" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Iteratively remove features while holding performance</text></g><line x1="330" y1="554" x2="330" y2="573" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 572 L330 579 L335 572Z" fill="#D6D3D1"/><g><rect x="1" y="580" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="604" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Tune #2</text><text x="330" y="623" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Re-tune on the depleted set</text></g><line x1="330" y1="638" x2="330" y2="657" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 656 L330 663 L335 656Z" fill="#D6D3D1"/><g><rect x="1" y="664" width="658" height="46" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="691.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Fit final model</text></g><line x1="330" y1="710" x2="330" y2="729" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 728 L330 735 L335 728Z" fill="#D6D3D1"/><g><rect x="1" y="736" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="760" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Evaluate and save artifact</text><text x="330" y="779" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Metrics, curves, feature list</text></g></svg><figcaption>The screen &rarr; tune &rarr; deplete &rarr; tune &rarr; fit sequence is the modeling core; everything either side is data preparation and persistence.</figcaption></figure>
+
+<h2>Results</h2>
+<p>Final model, 803 genomes:</p>
+<table class="tbl"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Genomes</td><td>803</td></tr><tr><td>Accuracy</td><td>90.06%</td></tr><tr><td>MCC</td><td>0.799</td></tr><tr><td>AUROC</td><td>0.913</td></tr><tr><td>Final feature count</td><td>154</td></tr></tbody></table>
+<p>Four views of the final model.</p>
+<div class="gal">
+<input type="radio" name="res" id="res1" class="gx" checked><input type="radio" name="res" id="res2" class="gx"><input type="radio" name="res" id="res3" class="gx"><input type="radio" name="res" id="res4" class="gx">
+<div class="gtabs"><label for="res1">1. Confusion matrix</label><label for="res2">2. ROC curve</label><label for="res3">3. Feature depletion</label><label for="res4">4. Top features</label></div>
+<figure class="gs rs1">
+  <input type="checkbox" id="rz1" class="zx"><label class="zin" for="rz1" title="Click to enlarge"><img width="629" height="565"  alt="Confusion matrix for the final KARMA model on the held-out test set." loading="lazy" decoding="async" src="assets/confusion-matrix-for-the-final-karma-b8673d.jpg"></label>
+  <div class="gcap"><b>Held-out confusion matrix.</b> 64 susceptible and 81 resistant strains called correctly, against 8 errors in each direction. The symmetry is the point: the model shows no bias toward calling strains resistant or susceptible, which is the usual failure mode when one class dominates.</div>
+</figure><figure class="gs rs2">
+  <input type="checkbox" id="rz2" class="zx"><label class="zin" for="rz2" title="Click to enlarge"><img width="870" height="715"  alt="ROC curve for the final KARMA model with an area under curve of 0.913." loading="lazy" decoding="async" src="assets/roc-curve-for-the-final-karma-b1d950.jpg"></label>
+  <div class="gcap"><b>ROC curve, AUROC 0.913.</b> The curve rises steeply away from the diagonal, so a high true-positive rate is reachable at low false-positive cost. That matters if the decision threshold ever needs to move toward catching every resistant strain at the expense of a few false alarms.</div>
+</figure><figure class="gs rs3">
+  <input type="checkbox" id="rz3" class="zx"><label class="zin" for="rz3" title="Click to enlarge"><img width="1400" height="1029"  alt="Four-panel feature depletion curves showing accuracy, F1, AUROC and MCC against number of features, for internal cross-validation and holdout." loading="lazy" decoding="async" src="assets/four-panel-feature-depletion-curves-showing-83c9a8.jpg"></label>
+  <div class="gcap"><b>Feature depletion across accuracy, F1, AUROC and MCC.</b> Internal cross-validation (blue) and holdout (orange) both hold flat from roughly 400 features down to about 50, then collapse. Best holdout sits at 154 features and best cross-validated MCC at 49 &mdash; the gap between those two marks is exactly why the holdout curve, not the cross-validation curve, decides the final feature count.</div>
+</figure><figure class="gs rs4">
+  <input type="checkbox" id="rz4" class="zx"><label class="zin" for="rz4" title="Click to enlarge"><img width="1400" height="1167"  alt="Bar chart of the top 30 k-mer features by importance in the final model." loading="lazy" decoding="async" src="assets/bar-chart-of-the-top-30-7c99c3.jpg"></label>
+  <div class="gcap"><b>Top 30 features by importance.</b> <code>CGAGCGCAAGG</code> leads at roughly twice the weight of the next feature, and is one of the two sequences that later mapped onto <i>intI1</i>. This chart is the first hint of what the interpretation below confirms &mdash; the model is keying on the integron rather than on a resistance gene itself.</div>
+</figure>
+</div>
+
+<h3>Continuous prediction</h3>
+<p>Trained a GBR regression model to predict continuous IC83 MIC values from k = 11 k-mer features, then layered a multi-class GBC classifier on top using the same optimal feature set. Both stages read the same IC83 column used for the binary labels, so one threshold runs through the whole pipeline.</p>
+<ul class="ol"><li><b>Stage 1 &mdash; regression (GBR).</b> k = 11 k-mers &rarr; log&#8322;(IC83 MIC). Pipeline: screen &rarr; tune1 &rarr; deplete &rarr; tune2 &rarr; fit. Metrics: RMSE in log&#8322; dilutions, MAE, R&sup2;, Spearman &rho;.</li><li><b>Stage 2 &mdash; classifier on top (GBC).</b> Depleted k-mers &rarr; discrete MIC tier. Classes are round(log&#8322;(MIC)), data-driven with no CLSI breakpoints. Pipeline: tune &rarr; fit, inheriting the feature set from stage 1 depletion. Metrics: accuracy, macro-F1, weighted-F1, confusion matrix.</li></ul>
+<figure class="fg wide"><input type="checkbox" id="z9" class="zx"><label class="zin" for="z9" title="Click to enlarge"><img width="1600" height="815"  alt="Two-panel stage 1 GBR regression output: predicted versus actual IC83 MIC colored by CLSI quadrant, and the residual distribution as fold change." loading="lazy" decoding="async" src="assets/two-panel-stage-1-gbr-regression-65c27a.jpg"></label><figcaption>Stage 1 GBR, IC83 MIC regression on the 161-strain held-out set. Left: predicted against actual MIC, shaded by CLSI quadrant. At the 4 &micro;g/mL breakpoint there were 12 false positives &mdash; susceptible strains called resistant &mdash; and 8 false negatives, resistant strains called susceptible. Right: residuals as fold change, centered at +0.04 dilutions with 37.9% of predictions within one doubling dilution. The vertical stack at 256 &micro;g/mL is the censored ceiling, where the true MIC is only known to exceed the highest tested concentration.</figcaption></figure>
+
+<h3>Genomic feature interpretation</h3>
+<p>Selected features from the final feature set were searched in the 803 strains, and each hit found was cross-referenced against the strain&rsquo;s Bakta annotation to identify the gene. Below is the coding-region hit summary:</p>
+<table class="tbl"><thead><tr><th>Gene</th><th>Product</th><th>Coding hits</th><th>Distinct k-mers</th><th>Strains R (%)</th><th>Strains S (%)</th><th>Enrichment</th></tr></thead><tbody><tr><td><i>intI1</i></td><td>Class 1 integron integrase</td><td>3,877</td><td>8</td><td>338 (73.8%)</td><td>24 (7.0%)</td><td>66.8</td></tr><tr><td><i>mph(A)</i></td><td>Macrolide 2&prime;-phosphotransferase</td><td>464</td><td>1</td><td>306 (66.8%)</td><td>28 (8.1%)</td><td>58.7</td></tr><tr><td><i>mrx(A)</i></td><td>Macrolide efflux MFS transporter</td><td>1,844</td><td>2</td><td>306 (66.8%)</td><td>28 (8.1%)</td><td>58.7</td></tr><tr><td><i>dfrA17</i></td><td>Trimethoprim-resistant DHFR</td><td>102</td><td>6</td><td>21 (4.6%)</td><td>3 (0.9%)</td><td>3.7</td></tr></tbody></table>
+<p class="note"><b>Interpretation.</b> The dominant signal is <i>intI1</i>, the class 1 integron integrase &mdash; found in 73.8% of resistant strains against 7.0% of susceptible ones, a 66.8-fold enrichment. That is not a bactrim-resistance mechanism. A class 1 integron is a mobile platform that captures and carries resistance cassettes, so what the model is keying on is the vehicle rather than the gene it carries. <i>mph(A)</i> and <i>mrx(A)</i> behave as a single unit and track <i>intI1</i> closely, consistent with a macrolide cassette riding the same integron &mdash; co-selected, not causal. <i>dfrA17</i>, the one genuine trimethoprim-resistance mechanism in the list, is largely decoupled from the other three and covers only 21 of 458 resistant strains. So the model is not learning resistance directly; it is learning the mobile element that resistance tends to travel on.</p>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#plaque-detection"><span>Previous</span>PFU Plaque Detection Classifier</a>
+    <a class="r" href="#wastewater-surveillance"><span>Next</span>Wastewater AMR Surveillance</a>
+  </nav>
+</section>
+
+<section class="page" id="wastewater-surveillance">
+  <h1>Wastewater AMR Surveillance</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; Population genomics, ANI clustering</p>
+  <ul class="chips"><li>Python</li><li>ANI clustering</li><li>Chi-square</li><li>Matplotlib</li><li>pandas</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>Wastewater aggregates bacterial populations across an entire catchment, which makes it a useful substrate for resistance surveillance. This analysis characterized antimicrobial resistance prevalence and geographic distribution across <i>E. coli</i> isolates and tested whether geographic origin, genomic similarity or colony phenotype correlates with predicted resistance status.</p>
+
+<h2>Workflow</h2>
+<p class="flowkey"><span class="k k-step">Processing step</span><span class="k k-check">Verification / QC</span><span class="k k-gate">Decision or gate</span></p>
+<figure class="flow"><svg viewBox="0 0 660 558" width="100%" role="img" aria-label="Seven-step wastewater surveillance workflow"><g><rect x="1" y="4" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="28" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Binary resistance predictions</text><text x="330" y="47" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Generated from the AMR resistance model</text></g><line x1="330" y1="62" x2="330" y2="81" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 80 L330 87 L335 80Z" fill="#D6D3D1"/><g><rect x="1" y="88" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="112" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Join to isolate metadata</text><text x="330" y="131" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Collection location and colony phenotype</text></g><line x1="330" y1="146" x2="330" y2="165" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 164 L330 171 L335 164Z" fill="#D6D3D1"/><g><rect x="1" y="172" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="196" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Pairwise ANI matrix</text><text x="330" y="215" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Genome-wide average nucleotide identity</text></g><line x1="330" y1="230" x2="330" y2="249" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 248 L330 255 L335 248Z" fill="#D6D3D1"/><g><rect x="1" y="256" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="280" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Hierarchical clustering</text><text x="330" y="299" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Constructed by my mentor</text></g><line x1="330" y1="314" x2="330" y2="333" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 332 L330 339 L335 332Z" fill="#D6D3D1"/><g><rect x="1" y="340" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="364" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Threshold sweep</text><text x="330" y="383" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">2,500 identity thresholds, 97.5% to 100%</text></g><line x1="330" y1="398" x2="330" y2="417" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 416 L330 423 L335 416Z" fill="#D6D3D1"/><g><rect x="1" y="424" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="448" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Association testing</text><text x="330" y="467" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Chi-square on phenotype against predicted resistance</text></g><line x1="330" y1="482" x2="330" y2="501" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 500 L330 507 L335 500Z" fill="#D6D3D1"/><g><rect x="1" y="508" width="658" height="46" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="535.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Visualization suite</text></g></svg><figcaption>Binary resistance predictions come from the <a href="#amr-prediction">genomic resistance model</a>.</figcaption></figure>
+<p>Binary resistance predictions for the wastewater strains were generated from the <a href="#amr-prediction">AMR resistance model</a> and joined with isolate metadata covering collection location and colony phenotype. The hierarchical clustering was constructed by my mentor, not by me.</p>
+
+<h2>Results</h2>
+<p class="note">Locations and states cannot be revealed and are blacked out for security and privacy. Facilities are labeled State&nbsp;N, Facility&nbsp;N throughout, consistently across all three figures.</p>
+<table class="tbl"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>QC-passed isolates</td><td>81</td></tr><tr><td>Treatment facilities</td><td>12</td></tr><tr><td>States</td><td>5</td></tr><tr><td>Predicted resistant</td><td>17 (21%)</td></tr><tr><td>Facilities with resistant isolates</td><td>7 of 12</td></tr></tbody></table>
+<p>Three views of the same 81 isolates, each testing a different candidate predictor.</p>
+<div class="gal">
+<input type="radio" name="ww" id="ww1" class="gx" checked><input type="radio" name="ww" id="ww2" class="gx"><input type="radio" name="ww" id="ww3" class="gx">
+<div class="gtabs"><label for="ww1">1. Resistance by facility</label><label for="ww2">2. Facility vs ANI cluster</label><label for="ww3">3. Location → resistance → phenotype</label></div>
+<figure class="gs ws1">
+  <input type="checkbox" id="wz1" class="zx"><label class="zin" for="wz1" title="Click to enlarge"><img width="1400" height="1018"  alt="Stacked bar chart of predicted antimicrobial resistance by anonymized wastewater treatment facility." loading="lazy" decoding="async" src="assets/stacked-bar-chart-of-predicted-antimicrobial-5eb82e.jpg"></label>
+  <div class="gcap"><b>Predicted resistance calls by facility.</b> 17 of 81 isolates were predicted resistant, appearing at 7 of the 12 anonymized sites. Resistant isolates are spread across the network rather than concentrated at one or two facilities &mdash; the first piece of evidence against a single site acting as the source.</div>
+</figure><figure class="gs ws2">
+  <input type="checkbox" id="wz2" class="zx"><label class="zin" for="wz2" title="Click to enlarge"><img width="1400" height="806"  alt="Heatmap of isolate counts by anonymized facility against 99 percent ANI cluster." loading="lazy" decoding="async" src="assets/heatmap-of-isolate-counts-by-anonymized-6416a5.jpg"></label>
+  <div class="gcap"><b>Facility against 99% ANI cluster.</b> Isolates from a single location scatter across many genomic clusters, and individual clusters draw from multiple locations. If resistance were spreading as one clone through the network this heatmap would concentrate along a diagonal; instead genomic similarity carries no geographic signal.</div>
+</figure><figure class="gs ws3">
+  <input type="checkbox" id="wz3" class="zx"><label class="zin" for="wz3" title="Click to enlarge"><img width="1400" height="655"  alt="Sankey diagram flowing from anonymized location through predicted resistance status to colony phenotype." loading="lazy" decoding="async" src="assets/sankey-diagram-flowing-from-anonymized-location-9f6394.jpg"></label>
+  <div class="gcap"><b>Sankey from location through predicted resistance to EMB phenotype.</b> Every location feeds both resistant and susceptible strands, and both statuses feed every phenotype. The absence of a dominant path is the result: colony appearance on EMB agar carries no information about resistance status, so a plate read cannot stand in for a genomic call.</div>
+</figure>
+</div>
+
+<h2>Key finding</h2>
+<p class="note"><b>No state, facility, or EMB phenotype is a clear indicator or predictor for resistance.</b> Resistant and susceptible isolates are interleaved across every stated geographic location and colony phenotype. This points to AMR potentially being carried on mobile genetic elements &mdash; consistent with the <a href="#amr-prediction">integron and cassette findings</a> from the genomic prediction work &mdash; rather than driven by a single resistant clone spreading through the network.</p>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#amr-prediction"><span>Previous</span>Antimicrobial Resistance Prediction</a>
+    <a class="r" href="#panel-optimizer"><span>Next</span>Liquid Host Range Optimizer</a>
+  </nav>
+</section>
+
+<section class="page" id="panel-optimizer">
+  <h1>Liquid Host Range Optimizer</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; Python, Flask, combinatorial optimization</p>
+  <ul class="chips"><li>Python</li><li>Flask</li><li>Combinatorial optimization</li><li>REST APIs</li><li>BigQuery</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>To implement a tool that automates experiment configuration and execution into a single guided workflow. All input and output files are streamlined so that a user&rsquo;s choice of strains, phages, and replicates per strain travel from the company website to the VANTAGE Liquid Handling System. It serves as an interface between the scientists requesting an experiment and the laboratory team performing them.</p>
+<p>Requesting a host-range experiment previously meant entering strain and phage data one record at a time to produce the files the liquid handler needs, then submitting them manually. The tool collapses that into one guided flow, catches inventory mismatches before anything reaches the robot, and maintains experiment records without manual entry.</p>
+
+<h2>Workflow</h2>
+<p class="flowkey"><span class="k k-main">Main flow</span><span class="k k-inv">Inventory decision</span><span class="k k-brk">Panel-break decision</span></p>
+<figure class="flow flow-lhr"><svg viewBox="0 0 1100 1820" width="100%" role="img" aria-label="Liquid Host Range Optimizer workflow: specification, layout optimization, inventory and panel-break decisions with loop-backs, and two submission paths with different outputs">
+<defs><marker id="a-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#A8A29E"/></marker><marker id="a-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#4F46E5"/></marker><marker id="a-o" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#D97706"/></marker></defs><rect x="408" y="13" width="124" height="42" rx="21" fill="#1C1917"/><text x="470" y="39" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#fff">Start</text><path d="M470 55 V88" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="327" y="91" width="286" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="470" y="116.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Enter specification</text><text x="470" y="133.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">strains, phages, replicates, split mode</text><rect x="850" y="92" width="230" height="50" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.2" stroke-dasharray="4 3"/><text x="862" y="108" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="9.8" font-weight="700" fill="#78716C">INPUT</text><text x="862" y="124" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.6" font-weight="500" fill="#1C1917">Strain list, phage list</text><text x="862" y="139" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.6" font-weight="500" fill="#1C1917">Replicates, split mode</text><path d="M613 120 H850" fill="none" stroke="#E7E5E4" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M470 149 V196" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="327" y="199" width="286" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="470" y="224.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Optimizer searches layouts</text><text x="470" y="241.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">fewest runs, then least wasted capacity</text><path d="M470 257 V299" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M470 302 L580 346 L470 390 L360 346Z" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="470" y="342.966" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">Valid layout</text><text x="470" y="357.466" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">found?</text><rect x="480" y="402" width="36" height="20" rx="3" fill="#1C1917"/><text x="498" y="416.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">YES</text><path d="M470 390 V433" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="350" y="436" width="240" height="48" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="470" y="464.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Select a layout</text><path d="M470 484 V526" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="327" y="529" width="286" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="470" y="554.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Enter strain and phage names</text><text x="470" y="571.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">paste-compatible grid</text><path d="M470 587 V630" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M470 633 L600 680 L470 727 L340 680Z" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="470" y="676.966" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#4338CA">All strains and phages</text><text x="470" y="691.466" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#4338CA">in SAM inventory?</text><rect x="480" y="742" width="36" height="20" rx="3" fill="#4338CA"/><text x="498" y="756.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">YES</text><path d="M470 727 V890" fill="none" stroke="#4F46E5" stroke-width="1.7" marker-end="url(#a-p)"/><rect x="305.5" y="658" width="29" height="20" rx="3" fill="#4338CA"/><text x="320" y="672.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">NO</text><path d="M340 680 H290 V762" fill="none" stroke="#4F46E5" stroke-width="1.7" marker-end="url(#a-p)"/><rect x="168" y="764" width="244" height="96" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="290" y="791" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#4338CA">Missing from inventory</text><text x="290" y="814" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="500" fill="#78716C">1  bypass and continue</text><text x="290" y="830" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="500" fill="#78716C">2  remove missing, continue</text><text x="290" y="846" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="500" fill="#78716C">3  go back and re-pick</text><path d="M412 812 H470" fill="none" stroke="#4F46E5" stroke-width="1.7"/><circle cx="470" cy="812" r="4" fill="#4F46E5"/><rect x="426.5" y="785" width="57" height="20" rx="3" fill="#4338CA"/><text x="455" y="799.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">1 or 2</text><rect x="122" y="738" width="22" height="20" rx="3" fill="#4338CA"/><text x="133" y="752.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">3</text><path d="M168 812 H130 V572 H325" fill="none" stroke="#4F46E5" stroke-width="1.7" marker-end="url(#a-p)"/><path d="M470 893 L606 940 L470 987 L334 940Z" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="470" y="936.966" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">Break a stored</text><text x="470" y="951.466" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">panel plate?</text><rect x="480" y="1000" width="36" height="20" rx="3" fill="#B45309"/><text x="498" y="1014.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">YES</text><path d="M470 987 V1031" fill="none" stroke="#D97706" stroke-width="1.7" marker-end="url(#a-o)"/><rect x="661.5" y="918" width="29" height="20" rx="3" fill="#B45309"/><text x="676" y="932.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">NO</text><path d="M606 940 H660 V544 H615" fill="none" stroke="#D97706" stroke-width="1.7" marker-end="url(#a-o)"/><rect x="325" y="1033" width="290" height="62" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="470" y="1060.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Create Experiment</text><text x="470" y="1077.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">create/update all 3 output files for current flow</text><rect x="850" y="1030" width="230" height="65" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.2" stroke-dasharray="4 3"/><text x="862" y="1046" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="9.8" font-weight="700" fill="#78716C">CREATED</text><text x="862" y="1062" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.6" font-weight="500" fill="#1C1917">Labguru experiment entry</text><text x="862" y="1077" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.6" font-weight="500" fill="#1C1917">Panel layout file</text><text x="862" y="1092" text-anchor="start" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.6" font-weight="500" fill="#1C1917">Phage dilution file</text><path d="M615 1064 H850" fill="none" stroke="#E7E5E4" stroke-width="1.2" stroke-dasharray="3 3"/><path d="M470 1095 V1139" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M470 1142 L580 1186 L470 1230 L360 1186Z" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="470" y="1190.216" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">Edit anything?</text><rect x="483.5" y="1242" width="29" height="20" rx="3" fill="#1C1917"/><text x="498" y="1256.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">NO</text><path d="M470 1230 V1267" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M470 1270 L588 1314 L470 1358 L352 1314Z" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="470" y="1318.216" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.4" font-weight="600" fill="#B45309">Which submission?</text><rect x="300" y="1292" width="36" height="20" rx="3" fill="#1C1917"/><text x="318" y="1306.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">EXP</text><path d="M352 1314 H250 V1408" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="606" y="1292" width="36" height="20" rx="3" fill="#1C1917"/><text x="624" y="1306.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">SAM</text><path d="M588 1314 H690 V1408" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="138" y="1410" width="224" height="56" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="250" y="1442.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Submit Experiment</text><rect x="578" y="1410" width="224" height="56" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="690" y="1442.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">Submit SAM Job</text><path d="M250 1466 V1504" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M690 1466 V1504" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="121" y="1506" width="258" height="72" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="250" y="1538.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#4338CA">Status → ongoing</text><text x="250" y="1555.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">no SAM job sent, no output files</text><rect x="559" y="1506" width="262" height="72" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="690" y="1538.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#4338CA">Status → ongoing</text><text x="690" y="1555.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.4" font-weight="400" fill="#78716C">files sent via terminal proxy</text><path d="M690 1578 V1624" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="559" y="1634" width="262" height="60" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="690" y="1668.8" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" fill="#1C1917">4 SAM output files</text><path d="M250 1578 V1768 H406" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><path d="M690 1694 V1768 H534" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="408" y="1747" width="124" height="42" rx="21" fill="#1C1917"/><text x="470" y="1773" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="13.5" font-weight="600" fill="#fff">End</text><rect x="157.5" y="324" width="29" height="20" rx="3" fill="#1C1917"/><text x="172" y="338.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">NO</text><path d="M360 346 H92 V108 H325" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/><rect x="60" y="1164" width="36" height="20" rx="3" fill="#1C1917"/><text x="78" y="1178.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="10.5" font-weight="600" fill="#fff">YES</text><path d="M360 1186 H40 V132 H325" fill="none" stroke="#A8A29E" stroke-width="1.7" marker-end="url(#a-g)"/></svg>
+<figcaption>Decisions loop back until the scientist submits. <b>Submit Experiment</b> and <b>Submit SAM Job</b> both set the status to ongoing, but only the SAM job sends the panel layout to the machine and produces the four output files. <b>Create Experiment</b> produces all three output files &mdash; the Labguru experiment entry, the panel layout file and the phage dilution file &mdash; and re-creates or edits them to match whichever flow the user is in. The phage dilution and panel layout files are then sent to the liquid handling machine via terminal proxy, which routes files from Labguru &mdash; which contains the experiment itself and its files &mdash; to the machine.</figcaption></figure>
+
+<ul class="ol">
+<li><b>Create Experiment</b> sits before the edit loop and produces three output files at
+once: the Labguru experiment entry, the panel layout file, and the phage dilution file.
+Because it runs inside the loop, each pass re-creates or edits all three to match whatever
+the user has changed &mdash; the files never drift from the current specification.</li>
+<li><b>The two submission actions are deliberately separate.</b> <b>Submit Experiment</b>
+sets the status to ongoing and nothing more &mdash; no SAM job is dispatched, so no SAM
+output files are produced. <b>Submit SAM Job</b> also sets the status to ongoing but
+additionally sends the panel layout file to the SAM machine, which generates the four SAM
+output files. Keeping them apart lets a scientist register and hold an experiment without
+committing instrument time.</li>
+<li><b>Experiments stay editable while unstarted</b>, so a different scientist can pick one
+up, while destructive actions remain restricted to the owner. Status is derived from a live
+data-warehouse query joined against results storage rather than a precomputed export so it
+cannot go stale.</li>
+</ul>
+
+<h2>Interface</h2>
+<p>Four points in that flow where the scientist is making a decision, in the order they are encountered.</p>
+<div class="gal">
+<input type="radio" name="gal" id="gal1" class="gx" checked><input type="radio" name="gal" id="gal2" class="gx"><input type="radio" name="gal" id="gal3" class="gx"><input type="radio" name="gal" id="gal4" class="gx">
+<div class="gtabs"><label for="gal1">1. Specification</label><label for="gal2">2. Panel selection</label><label for="gal3">3. Strain and phage entry</label><label for="gal4">4. Labguru submission</label></div>
+<figure class="gs gs1">
+  <input type="checkbox" id="gz1" class="zx"><label class="zin" for="gz1" title="Click to enlarge"><img width="894" height="793"  alt="Initial screen where a scientist enters number of strains, phages and replicates." loading="lazy" decoding="async" src="assets/initial-screen-where-a-scientist-enters-d0d935.jpg"></label>
+  <div class="gcap"><b>Experiment specification.</b> The scientist enters unique strains, phages, and replicates per strain. These four numbers are the entire input to the optimizer &mdash; everything downstream is derived from them.</div>
+  
+</figure><figure class="gs gs2">
+  <input type="checkbox" id="gz2" class="zx"><label class="zin" for="gz2" title="Click to enlarge"><img width="900" height="868"  alt="Panel layout selection screen showing ranked valid combinations with the most efficient recommended." loading="lazy" decoding="async" src="assets/panel-layout-selection-screen-showing-ranked-3715e7.jpg"></label>
+  <div class="gcap"><b>Panel selection, and the confirmation gate.</b> Valid layouts are ranked by fewest experiment runs first, then least unused well capacity. Some layouts can only be fulfilled by physically breaking a stored panel plate, which is irreversible and expensive to get wrong. The system blocks and asks the user to explicitly confirm before proceeding &mdash; it is never auto-approved. Convenience was the wrong thing to optimize at that step.</div>
+  
+</figure><figure class="gs gs3">
+  <input type="checkbox" id="gz3" class="zx"><label class="zin" for="gz3" title="Click to enlarge"><img width="1222" height="1318"  alt="Data entry grid for strain and phage names with live validation against laboratory inventory." loading="lazy" decoding="async" src="assets/data-entry-grid-for-strain-and-fde9f8.jpg"></label>
+  <div class="gcap"><b>Strain and phage entry.</b> A paste-compatible grid, with every name checked against live lab inventory as it is entered. Catching a mismatch here is the difference between a failed robot run and a corrected typo.</div>
+  
+</figure>
+<figure class="gs gs4">
+  <input type="checkbox" id="gz4" class="zx"><label class="zin" for="gz4" title="Click to enlarge"><img width="1520" height="751"  alt="Submission screen with optional experiment title and description, a required strain plate CFU per millilitre field, a media selector for blank wells, and buttons to submit to Labguru or download a ZIP." loading="lazy" decoding="async" src="assets/submission-screen-with-optional-experiment-title-bf674b.png"></label>
+  <div class="gcap"><b>Labguru submission.</b> The last parameters to enter before creating a Labguru experiment. Title and description are optional; strain plate CFU/mL and media are required for the creation of the panel layout file and for informing lab personnel of the titer amount for all strains. Once all required fields are entered, clicking <b>Submit to Labguru</b> creates the Labguru experiment with both output files attached. <b>Download ZIP</b> generates the output files and exports them as a zipped folder for the user.</div>
+</figure>
+</div>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#wastewater-surveillance"><span>Previous</span>Wastewater AMR Surveillance</a>
+    <a class="r" href="#supplementary-analysis"><span>Next</span>Supplementary Analysis</a>
+  </nav>
+</section>
+
+<section class="page" id="supplementary-analysis">
+  <h1>Supplementary Analysis</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; Comparative genomics, statistical testing</p>
+  <ul class="chips"><li>BLAST+</li><li>Bakta</li><li>geNomad</li><li>SciPy</li><li>pandas</li></ul>
+  <div class="prose">
+<section class="sub"><h2>Engineered strain verification</h2>
+
+<h3>Background</h3>
+<p>Three engineered variants of a parent bacterial strain were supplied with specific genetic claims: one prophage-free, one with the <i>HylA</i> and <i>HylB</i> genes removed, and one with both modifications. This audit tested whether the assemblies actually carry the claimed deletions.</p>
+
+<h3>Workflow</h3>
+<figure class="flow"><svg viewBox="0 0 640 450" width="100%" role="img" aria-label="Six-step strain verification workflow"><g><rect x="1" y="4" width="638" height="46" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="31.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Copy assemblies, build BLAST databases</text></g><line x1="320" y1="50" x2="320" y2="69" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 68 L320 75 L325 68Z" fill="#D6D3D1"/><g><rect x="1" y="76" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="100" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Contig count and GC check</text><text x="320" y="119" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Contamination and quality sanity pass across all four</text></g><line x1="320" y1="134" x2="320" y2="153" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 152 L320 159 L325 152Z" fill="#D6D3D1"/><g><rect x="1" y="160" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="184" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Functional annotation</text><text x="320" y="203" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Exact-match gene calls rather than homology</text></g><line x1="320" y1="218" x2="320" y2="237" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 236 L320 243 L325 236Z" fill="#D6D3D1"/><g><rect x="1" y="244" width="638" height="46" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="271.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Prophage detection across all four strains</text></g><line x1="320" y1="290" x2="320" y2="309" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 308 L320 315 L325 308Z" fill="#D6D3D1"/><g><rect x="1" y="316" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="340" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Align parent prophage sequences to each variant</text><text x="320" y="359" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Confirms regions are identical rather than merely similar</text></g><line x1="320" y1="374" x2="320" y2="393" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 392 L320 399 L325 392Z" fill="#D6D3D1"/><g><rect x="1" y="400" width="638" height="46" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="427.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Percent identity and whole-genome alignment</text></g></svg><figcaption>Each step is independent so a failure in one does not propagate silently.</figcaption></figure>
+
+<h3>Results</h3>
+<p>Four checks, each run independently so a failure in one cannot propagate.</p>
+<div class="gal">
+<input type="radio" name="esv" id="esv1" class="gx" checked><input type="radio" name="esv" id="esv2" class="gx"><input type="radio" name="esv" id="esv3" class="gx"><input type="radio" name="esv" id="esv4" class="gx">
+<div class="gtabs"><label for="esv1">1. Prophage detection</label><label for="esv2">2. Prophage identity</label><label for="esv3">3. HylA / HylB annotation</label><label for="esv4">4. Genome alignment</label></div>
+<figure class="gs es1">
+  <input type="checkbox" id="ez1" class="zx"><label class="zin" for="ez1" title="Click to enlarge"><img width="1190" height="653"  alt="Prophage detection results across the parent strain and three engineered variants." loading="lazy" decoding="async" src="assets/prophage-detection-results-across-the-parent-dd177f.jpg"></label>
+  <div class="gcap"><b>Prophage regions in the parent.</b> Two prophages were detected in the wild-type parent strain. This is the baseline the deletion claims are tested against &mdash; without a positive call here there would be nothing to check the engineered variants for.</div>
+</figure><figure class="gs es2">
+  <input type="checkbox" id="ez2" class="zx"><label class="zin" for="ez2" title="Click to enlarge"><img width="717" height="260"  alt="Percent identity heatmap comparing prophage regions across parent and engineered strains." loading="lazy" decoding="async" src="assets/percent-identity-heatmap-comparing-prophage-regions-4b8d3d.jpg"></label>
+  <div class="gcap"><b>Percent identity of prophage regions across all four assemblies.</b> The parent&rsquo;s prophages were aligned against each engineered strain and come back at 99.42% to 100% identity in all three variants, including the two claimed to be prophage-free. Identity that high means the sequence is still fully present rather than a diverged remnant.</div>
+</figure><figure class="gs es3">
+  <input type="checkbox" id="ez3" class="zx"><label class="zin" for="ez3" title="Click to enlarge"><img width="1190" height="397"  alt="Gene annotation results for the HylA and HylB genes across all four assemblies." loading="lazy" decoding="async" src="assets/gene-annotation-results-for-the-hyla-139e39.jpg"></label>
+  <div class="gcap"><b><i>HylA</i> and <i>HylB</i> annotation across all four assemblies.</b> Exact-match annotation returns neither gene in any strain &mdash; including the wild-type parent. That missing baseline is precisely why this claim comes out unverifiable rather than disproved: with no positive call in the parent, there is nothing a deletion could be measured against.</div>
+</figure><figure class="gs es4">
+  <input type="checkbox" id="ez4" class="zx"><label class="zin" for="ez4" title="Click to enlarge"><img width="1400" height="465"  alt="Whole-genome alignment dotplot comparing engineered strains against the parent assembly." loading="lazy" decoding="async" src="assets/whole-genome-alignment-dotplot-comparing-engineered-7d66da.jpg"></label>
+  <div class="gcap"><b>Whole-genome alignment against the parent.</b> Structural comparison of each variant to the parent assembly. This is also where the assembly anomaly noted below surfaces &mdash; one variant carries an extra 47.5 kb contig that no other strain has.</div>
+</figure>
+</div>
+<p class="fullw">A quality anomaly also surfaced. The parent and two variants each assemble into a single contig of about 2.71 Mb at 32.8% GC, as expected. The third assembles into two contigs: a main contig matching the parent chromosome length, plus an additional 47.5 kb contig absent from every other strain. Flagged, not resolved.</p>
+
+<h3>Key findings</h3>
+<div class="noterow"><p class="note warn"><b>Prophage removal is not supported.</b> Two prophages were detected in the parent. Aligning them against the engineered strains recovered near-identical hits in all three variants, at 99.42% to 100% identity, including the two claimed to be prophage-free.</p><p class="note warn"><b><i>HylA</i> and <i>HylB</i> removal cannot be confirmed by this method.</b> Exact-match annotation found neither target gene in any of the four assemblies, including the wild-type parent. Without a positive call in the parent there is no baseline against which a deletion can be verified. That is a limitation of the method, not evidence the deletion failed.</p></div>
+</section>
+
+<section class="sub"><h2>384-well plate position quality control</h2>
+
+<h3>Background</h3>
+<p>Edge wells on a 384-well plate are exposed to different thermal conditions than interior wells. This analysis tested whether that position introduces a systematic bias in measured growth area-under-curve across five independent plate runs, and if so whether the bias is large enough to affect downstream conclusions.</p>
+
+<h3>Workflow</h3>
+<figure class="flow"><svg viewBox="0 0 640 378" width="100%" role="img" aria-label="Five-step plate position QC workflow"><g><rect x="1" y="4" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="28" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Classify wells</text><text x="320" y="47" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Outer (row A/P, column 1/24), inner (rows C&ndash;N, columns 3&ndash;22), transition excluded</text></g><line x1="320" y1="62" x2="320" y2="81" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 80 L320 87 L325 80Z" fill="#D6D3D1"/><g><rect x="1" y="88" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="112" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Normalize per strain</text><text x="320" y="131" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Percentage AUC deviation from each strain&rsquo;s global mean</text></g><line x1="320" y1="146" x2="320" y2="165" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 164 L320 171 L325 164Z" fill="#D6D3D1"/><g><rect x="1" y="172" width="638" height="46" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="199.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Mann-Whitney U, pooled and per plate</text></g><line x1="320" y1="218" x2="320" y2="237" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 236 L320 243 L325 236Z" fill="#D6D3D1"/><g><rect x="1" y="244" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="268" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Bootstrap, null cuts, plate-half comparisons</text><text x="320" y="287" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">1,000 iterations; is the effect border-localized or plate-wide?</text></g><line x1="320" y1="302" x2="320" y2="321" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 320 L320 327 L325 320Z" fill="#D6D3D1"/><g><rect x="1" y="328" width="638" height="46" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="355.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Permutation test after bias subtraction</text></g></svg><figcaption>Four independent checks rather than accepting the first result.</figcaption></figure>
+
+<h3>Results</h3>
+<table class="tbl"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Independent plate runs</td><td>5</td></tr><tr><td>Strain-well data points</td><td>4,601</td></tr><tr><td>Inner-well points</td><td>3,292</td></tr><tr><td>Outer-well points</td><td>1,309</td></tr><tr><td>Strains present in both zones</td><td>659</td></tr></tbody></table>
+<figure class="fg wide"><input type="checkbox" id="z17" class="zx"><label class="zin" for="z17" title="Click to enlarge"><img width="1400" height="611"  alt="384-well plate heatmaps showing percentage AUC deviation from strain mean by well position across five plate runs." loading="lazy" decoding="async" src="assets/384-well-plate-heatmaps-showing-percentage-7eff3d.jpg"></label><figcaption>AUC deviation from strain mean by well position, combined and per plate.</figcaption></figure>
+
+<h3>Key finding</h3>
+<p class="note"><b>After subtracting each well&rsquo;s estimated positional bias, the inner-versus-outer difference became non-significant.</b> The signal is fully explained by well position rather than an unmodeled biological factor. The effect is confined to the plate border, is not a plate-wide gradient, and its direction is plate-dependent. Absolute AUC at the border warrants mild caution, but relative strain ranking is preserved, so cross-strain comparisons remain robust.</p>
+<p>Separately, one replicate was identified reading at roughly 19% of its true AUC. This was diagnosed as instrument failure rather than biological variation and flagged before it could influence downstream analysis.</p>
+</section>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#panel-optimizer"><span>Previous</span>Liquid Host Range Optimizer</a>
+    <a class="r" href="#supplementary-tools"><span>Next</span>Supplementary Tools</a>
+  </nav>
+</section>
+
+<section class="page" id="supplementary-tools">
+  <h1>Supplementary Tools</h1>
+  <p class="meta">Locus Biosciences &middot; May&ndash;August 2026 &middot; JavaScript, SVG, Python, Flask</p>
+  <ul class="chips"><li>JavaScript</li><li>SVG</li><li>Python</li><li>Flask</li><li>pytest</li><li>Semantic Scholar API</li></ul>
+  <div class="prose">
+<section class="sub"><h2>Interactive AUC heatmap</h2>
+
+<h3>Background</h3>
+<p>Before this, the output of the growth curves for every strain&ndash;phage combination was all in a PDF spanning at least a hundred pages, making it impossible to compare multiple growth curves. The goal for this tool was to incorporate all of an experiment&rsquo;s static output into an interactive HTML page, making it easy to parse and compare multiple strain&ndash;phage combinations at once.</p>
+
+<h3>Workflow</h3>
+<p>The code that creates each static output is now repurposed to create the interactive AUC heatmap for every completed in-lab experiment. The strains (rows) and phages (columns) that were tested in the experiment are shown in the heatmap.</p>
+<ol class="ol"><li>The user goes through each cell, representing one strain&ndash;phage combination, and sees that cell&rsquo;s growth curves in the table on the right.</li><li>Clicking a cell pins it, so the cursor can move freely without losing the selection.</li><li>Multiple curves can be compared by clicking cells individually, selecting a whole row &mdash; the growth curves for one strain against every phage it was tested with &mdash; or dragging over an area.</li><li>Clicking <b>Generate Curves</b> opens a pop-up with all selected curves. Checkboxes on the right control which are shown, the plot can be zoomed and dragged, and a toggle at the bottom switches between control curves, phage curves, or both.</li></ol>
+<figure class="fg wide"><input type="checkbox" id="z18" class="zx"><label class="zin" for="z18" title="Click to enlarge"><img width="1400" height="930"  alt="Interactive heatmap showing strain-phage results as a color-coded grid with mode toggle and cutoff slider." loading="lazy" decoding="async" src="assets/interactive-heatmap-showing-strain-phage-results-bdb702.jpg"></label><figcaption>Summary grid, with an AUC-ratio to hit/miss toggle and a live cutoff slider.</figcaption></figure><figure class="fg wide"><input type="checkbox" id="z19" class="zx"><label class="zin" for="z19" title="Click to enlarge"><img width="1400" height="750"  alt="Growth curve comparison window showing replicate optical density curves for selected wells." loading="lazy" decoding="async" src="assets/growth-curve-comparison-window-showing-replicate-3d1b74.jpg"></label><figcaption>Generated curves for the selected cells, with per-curve checkboxes and a control/phage toggle.</figcaption></figure>
+
+<h3>Results</h3>
+<p>Ships as one dependency-free HTML file with inline CSS and JavaScript and an embedded JSON payload, making no network requests so it opens offline. Charting is hand-built inline SVG including axes, gridlines, crosshairs, drag-to-zoom and pan, with no charting library. The existing AUC pivot and optical-density QC code path was reused rather than recomputed, so the interactive view&rsquo;s numbers match the already-shipped static heatmap. The largest grid rendered is 20 &times; 345, or 6,900 cells.</p>
+</section>
+
+<section class="sub"><h2>Literature discovery tool</h2>
+
+<h3>Background</h3>
+<p>The tool surfaces relevant scientific papers given one or more papers of interest, using a public scholarly-graph API and its embedding-based recommendation endpoint. It provides a more reliable route to trustworthy academic sources than manual search. A colleague built the core client, recommendation pipeline and command-line scaffold; my contributions extended it.</p>
+
+<h3>Workflow</h3>
+<figure class="flow"><svg viewBox="0 0 640 558" width="100%" role="img" aria-label="Seven-step literature discovery workflow with fallback path"><g><rect x="1" y="4" width="638" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="28" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">User enters identifiers or free text</text><text x="320" y="47" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">DOI, PMID, arXiv, URL, or a plain title</text></g><line x1="320" y1="62" x2="320" y2="81" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 80 L320 87 L325 80Z" fill="#D6D3D1"/><g><rect x="1" y="88" width="638" height="46" rx="22" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="320" y="115.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#B45309">Recognized identifier?</text></g><line x1="320" y1="134" x2="320" y2="153" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 152 L320 159 L325 152Z" fill="#D6D3D1"/><g><rect x="1" y="160" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="184" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Keyword search against the scholarly graph</text><text x="320" y="203" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Roughly 200M papers</text></g><line x1="320" y1="218" x2="320" y2="237" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 236 L320 243 L325 236Z" fill="#D6D3D1"/><g><rect x="1" y="244" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="268" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">PubMed and arXiv fallback</text><text x="320" y="287" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Used when the graph returns nothing, so a paper is rarely a dead end</text></g><line x1="320" y1="302" x2="320" y2="321" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 320 L320 327 L325 320Z" fill="#D6D3D1"/><g><rect x="1" y="328" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="352" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Recommendation returns results and a fallback flag</text><text x="320" y="371" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Callers can signal degraded results rather than presenting them as equivalent</text></g><line x1="320" y1="386" x2="320" y2="405" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 404 L320 411 L325 404Z" fill="#D6D3D1"/><g><rect x="1" y="412" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="436" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Citation graph traversal</text><text x="320" y="455" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Papers a seed cites and papers citing it, filterable by year</text></g><line x1="320" y1="470" x2="320" y2="489" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 488 L320 495 L325 488Z" fill="#D6D3D1"/><g><rect x="1" y="496" width="638" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="520" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Biweekly scheduled digest</text><text x="320" y="539" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">New recommendations filtered against the accumulated list</text></g></svg><figcaption>The fallback path is the point of the work: the recommendation endpoint accepts identifiers only, and papers without an embedding return nothing at all.</figcaption></figure>
+<p class="note"><b>The fallback mechanism.</b> Recognized identifiers are normalized without an API call. Where an identifier is not recognized, the tool performs a keyword search against the scholarly graph, then falls back to PubMed and arXiv title search. The recommender returns both the result set and a flag indicating whether fallback was used, so the caller can tell the user the results are degraded rather than presenting them as equivalent.</p>
+
+<h3>Results</h3>
+<p>Three screens, in the order a user meets them.</p>
+<div class="gal">
+<input type="radio" name="lit" id="lit1" class="gx" checked><input type="radio" name="lit" id="lit2" class="gx"><input type="radio" name="lit" id="lit3" class="gx">
+<div class="gtabs"><label for="lit1">1. Paper entry</label><label for="lit2">2. Recommendations</label><label for="lit3">3. Article detail</label></div>
+<figure class="gs ls1">
+  <input type="checkbox" id="lz1" class="zx"><label class="zin" for="lz1" title="Click to enlarge"><img width="895" height="870"  alt="Literature tool entry screen accepting article identifiers." loading="lazy" decoding="async" src="assets/literature-tool-entry-screen-accepting-article-c4a998.jpg"></label>
+  <div class="gcap"><b>Entry screen.</b> Seeds are entered here as DOIs, PMIDs, arXiv identifiers, URLs or plain title text, and more than one can be supplied at a time. Recognized identifiers are normalized locally with no API call; anything unrecognized is what triggers the fallback path, so this screen is also where the difference between a clean lookup and a degraded one originates.</div>
+</figure><figure class="gs ls2">
+  <input type="checkbox" id="lz2" class="zx"><label class="zin" for="lz2" title="Click to enlarge"><img width="895" height="1089"  alt="Recommendation output listing related papers with an embedding-space graph." loading="lazy" decoding="async" src="assets/recommendation-output-listing-related-papers-with-c5ba00.jpg"></label>
+  <div class="gcap"><b>Recommendation output and embedding graph.</b> Semantic Scholar&rsquo;s SPECTRE embeddings are visualized in the graph. The seeds a user entered are drawn as <b>stars</b>, and the same-colored circles connected to each star are that seed&rsquo;s recommended papers &mdash; the closer a circle sits to its star, the more similar the paper. The <b>white circles are papers recommended for both seeds at once</b>: enter two concepts you want to connect and the bridging literature is the first thing you see, which is the case manual search handles worst.</div>
+</figure><figure class="gs ls3">
+  <input type="checkbox" id="lz3" class="zx"><label class="zin" for="lz3" title="Click to enlarge"><img width="834" height="1039"  alt="Article metadata view showing details for a selected paper." loading="lazy" decoding="async" src="assets/article-metadata-view-showing-details-for-4e1b58.jpg"></label>
+  <div class="gcap"><b>Article detail view.</b> Full metadata for a selected paper &mdash; title, authors, venue, year, abstract and citation counts &mdash; so a candidate can be judged without leaving the tool. The result set also carries the fallback flag, so results reached through keyword or title search are labeled as degraded rather than presented as equivalent to an identifier match.</div>
+</figure>
+</div>
+
+</section>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#supplementary-analysis"><span>Previous</span>Supplementary Analysis</a>
+    <a class="r" href="#surgeonfish"><span>Next</span>Visual Phenomics and Phylogenetic Inference</a>
+  </nav>
+</section>
+
+<section class="page" id="surgeonfish">
+  <h1>Visual Phenomics and Phylogenetic Inference</h1>
+  <p class="meta">Dornburg Lab, UNC Charlotte &middot; 2025&ndash;present &middot; In progress (v2.0.2)</p>
+  <ul class="chips"><li>PyTorch</li><li>Grounded SAM 2</li><li>K<sub>mult</sub></li><li>Phylogenetics</li><li>Google Colab</li><li>pytest</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>Is visual pattern similarity among surgeonfish (family Acanthuridae) associated with evolutionary relatedness, or does it arise independently of shared ancestry? For species with a known molecular phylogeny, the test is whether quantified visual similarity between species pairs covaries with phylogenetic distance.</p>
+<p>A significant result is evidence that visual pattern covaries with relatedness &mdash; that closely related species tend to resemble one another. A null result means pattern is not explained by relatedness at the resolution these methods detect, and resemblance is more likely convergent.</p>
+<p class="note"><b>What this test cannot separate.</b> Pattern covarying with phylogeny is consistent with pattern being heritable, but equally consistent with pattern tracking an ecological variable &mdash; diet, depth, reef zone &mdash; that is itself phylogenetically conserved. Closely related surgeonfishes share ecology as well as genes. Distinguishing the two would need ecological covariates and a phylogenetic regression, which is out of scope; the claim is scoped to what the statistics actually measure.</p>
+<p class="note warn"><b>This project is being rebuilt from scratch.</b> An earlier pipeline produced unreliable results: a broken evaluation metric, a misreported ROC-AUC, a silently dropped test image, and a phylogenetic-signal result that came from data-dredged feature selection rather than a preregistered test. Rebuilding proceeds one phase at a time, each verified against its own output before the next begins. Phases 0 and 1 are complete against the real dataset and Phase 2 has a working prototype; no scientific results are reported yet.</p>
+<table class="tbl"><thead><tr><th>Item</th><th>Value</th></tr></thead><tbody>
+<tr><td>Species</td><td>64, across all six extant Acanthuridae genera</td></tr>
+<tr><td>Candidate images evaluated</td><td>2,329</td></tr>
+<tr><td>Accepted into the dataset</td><td>1,460 (869 rejected)</td></tr>
+<tr><td>Species meeting the 25-image target</td><td>55 of 64</td></tr>
+<tr><td>Human review rounds</td><td>9</td></tr>
+<tr><td>Specimens extracted (Phase 1)</td><td>856 of 1,460</td></tr>
+<tr><td>Phylogenetic reference</td><td>Fish Tree of Life genetic-data-only tree; 50 of 64 species matched</td></tr>
+<tr><td>Test suite</td><td>119 passing, ruff clean</td></tr>
+</tbody></table>
+
+<h2>Workflow</h2>
+<p class="flowkey"><span class="k k-step">Processing step</span><span class="k k-check">Verification / QC</span><span class="k k-gate">Decision or gate</span></p>
+<figure class="flow"><svg viewBox="0 0 660 654" width="100%" role="img" aria-label="Eight-phase surgeonfish workflow"><g><rect x="1" y="4" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="28" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Phase 0 &mdash; GBIF image sourcing</text><text x="330" y="47" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">2,329 candidates evaluated across 64 species</text></g><line x1="330" y1="62" x2="330" y2="81" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 80 L330 87 L335 80Z" fill="#D6D3D1"/><g><rect x="1" y="88" width="658" height="58" rx="4" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.4"/><text x="330" y="112" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#B45309">License allowlist gate</text><text x="330" y="131" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Public domain and CC-BY accepted; no-derivatives excluded</text></g><line x1="330" y1="146" x2="330" y2="165" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 164 L330 171 L335 164Z" fill="#D6D3D1"/><g><rect x="1" y="172" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="196" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Automated filters and 9 human review rounds</text><text x="330" y="215" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">1,460 accepted, 869 rejected and backfilled where possible</text></g><line x1="330" y1="230" x2="330" y2="249" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 248 L330 255 L335 248Z" fill="#D6D3D1"/><g><rect x="1" y="256" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="280" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Phase 1 &mdash; Grounded SAM 2 extraction</text><text x="330" y="299" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Grounding DINO zero-shot detection plus SAM 2.1 segmentation</text></g><line x1="330" y1="314" x2="330" y2="333" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 332 L330 339 L335 332Z" fill="#D6D3D1"/><g><rect x="1" y="340" width="658" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="330" y="364" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">QA gate and reviewer override</text><text x="330" y="383" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">856 accepted, 604 excluded, 0 left flagged</text></g><line x1="330" y1="398" x2="330" y2="417" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 416 L330 423 L335 416Z" fill="#D6D3D1"/><g><rect x="1" y="424" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="448" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Phase 2 &mdash; pattern feature extraction</text><text x="330" y="467" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Coloring, stripes and spots kept as three separate feature sets</text></g><line x1="330" y1="482" x2="330" y2="501" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 500 L330 507 L335 500Z" fill="#D6D3D1"/><g><rect x="1" y="508" width="658" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="330" y="532" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Phase 3 &mdash; per-species aggregation and distance matrices</text><text x="330" y="551" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Not built; aggregation rule still being specified</text></g><line x1="330" y1="566" x2="330" y2="585" stroke="#D6D3D1" stroke-width="1.6"/><path d="M325 584 L330 591 L335 584Z" fill="#D6D3D1"/><g><rect x="1" y="592" width="658" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="330" y="616" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Phase 4 &mdash; K<tspan baseline-shift="sub" font-size="10">mult</tspan> phylogenetic signal</text><text x="330" y="635" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">geomorph physignal.z, with Mantel retained as a secondary check</text></g></svg><figcaption>Phases 0 and 1 have been run against the real dataset. Phase 2 is a working prototype. Phases 3 and 4 are specified and partly preregistered, but not built.</figcaption></figure>
+<p>Images are collected programmatically through GBIF&rsquo;s public API rather than hand-collected or scraped from search results. robots.txt is enforced at runtime before every request, including each image download, which can resolve to a different host than the API itself. The license allowlist accepts public-domain and Creative Commons attribution licenses but excludes no-derivatives licenses, since the pipeline produces derivative works in the form of masks, crops and figures. License and attribution are logged per image, and requests are rate-limited to one per second with a descriptive user agent and contact address.</p>
+<p>Automated filters catch mechanical problems such as resolution and duplication but cannot reliably judge whether an image is a clean, close-up photograph of a single specimen. That judgement is made through a generated review page across nine rounds. Nine species remain below the 25-image target because of licensed-photo availability rather than a pipeline limitation.</p>
+<p>Specimen extraction uses <b>Grounded SAM 2</b> &mdash; Grounding DINO for zero-shot, text-prompted detection followed by SAM 2.1 for segmentation &mdash; so no training set or fine-tuning is required. A QA gate decides whether an image shows exactly one roughly-centered fish; anything ambiguous is routed to human review rather than silently accepted or dropped. Pattern features are then extracted as three independent sets rather than one blended vector: coloring by dominant-colour clustering, spots by connected-component blob shape, and stripes by region elongation with per-channel FFT periodicity along the body axes. Keeping them separate is a developmental argument, not an engineering convenience &mdash; a candidate-gene literature review found the three pattern types are generated by distinct mechanisms.</p>
+
+<h2>Results</h2>
+<p>No scientific results yet. What exists is process: Phase 1 ran the full 64-species dataset on a Colab L4 GPU and every one of the 1,460 images reached a final, non-flagged status. Getting there took several review rounds and three real fixes rather than one clean pass.</p>
+<ul class="ol">
+<li><b>The QA gate could not tell a duplicate detection from two fish.</b> After the first run, 100 images sat flagged as <code>multiple_fish</code> and a reviewer confirmed all 100 were fine. The gate counted qualifying boxes without deduplicating them, so two overlapping detections of the same fish were indistinguishable from a genuine multi-fish photo. Fixed by collapsing boxes above an IoU threshold before counting.</li>
+<li><b>That fix moved none of them.</b> Rather than guess a second cause, running the detector directly on five of the flagged images and printing raw box coordinates showed the real pattern: one large high-confidence box plus a small, non-overlapping, low-confidence box &mdash; background clutter, not a duplicate. A qualifying box under 20% of the largest box&rsquo;s area is now dropped as clutter. Together the two fixes resolved 93 of the 100; the remaining 6 were non-uniform enough that a third automated threshold was not justified, and went through an explicitly scoped human-override path instead.</li>
+<li><b>A scaling cliff no test caught.</b> Phase 2&rsquo;s colour clustering fed every masked-in pixel into an iterative k-means fit. Every test used synthetic images under about 1,200 pixels, but a real fish mask runs to millions, and a two-million-pixel fit took roughly 18 seconds &mdash; consistent with a run stretching past an hour with no progress output. The iterative fit now runs on at most 50,000 sampled pixels, reproducing the full-image cluster centres to within about one RGB unit, then assigns every real pixel in a single vectorized pass.</li>
+</ul>
+
+<h2>Preregistration</h2>
+<p class="note"><b>The statistical plan is fixed in advance, specifically because of how the first attempt failed.</b> K<sub>mult</sub> is the primary per-dimension test via <code>geomorph::physignal.z</code>, with Mantel retained only as a secondary distance-based check. The branch-scaling parameter is pinned to <code>lambda = "front"</code> rather than <code>"burn"</code> &mdash; <code>"burn"</code> selects the value that maximizes the effect size, which is the very statistic being compared across the three pattern dimensions, and maximizing the thing you are about to compare is the shape of mistake that produced the discarded result. A multiple-comparisons correction applies across all three dimensions, and a null result will be reported as inconclusive rather than as evidence of no association.</p>
+
+<h2>Key finding</h2>
+<p class="note">One prediction is checkable in advance. <i>Acanthurus</i> is paraphyletic with respect to <i>Ctenochaetus</i>, and the source phylogeny recovers that paraphyly specifically as <i>Ctenochaetus</i> nested with two named species, <i>A. nubilus</i> and <i>A. pyroferus</i>. Both are present in the 50-species phylogeny-matched set, so the prediction is testable as named rather than as a genus-level proxy. Whether the paraphyly also shows up in visual similarity is a direct consequence of the broader question, and a good test of whether the method detects anything real.</p>
+<p>Two sampling limitations are worth stating alongside it. Taxon sampling is uneven across genera against each genus&rsquo;s full species count &mdash; <i>Prionurus</i> 43% and <i>Naso</i> 70%, against a family mean of 77% &mdash; and sparse sampling in <i>Naso</i> disproportionately shapes the large phylogenetic distances that most influence the result. Restricting to genetically-placed species also drops <i>Acanthurus</i> coverage from 79% to 54%, which is the genus this specific prediction most depends on.</p>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#supplementary-tools"><span>Previous</span>Supplementary Tools</a>
+    <a class="r" href="#yeast"><span>Next</span>Sourdough Yeast Domestication Genomics</a>
+  </nav>
+</section>
+
+<section class="page" id="yeast">
+  <h1>Sourdough Yeast Domestication Genomics</h1>
+  <p class="meta">Heil Lab, NC State University &middot; January&ndash;September 2025</p>
+  <ul class="chips"><li>GATK</li><li>bcftools</li><li>SnpEff</li><li>R</li><li>PCA</li><li>Phylogenetics</li></ul>
+  <div class="prose">
+<h2>Background</h2>
+<p>Sourdough is a human-created environment, so any yeast population originating from it is by definition domesticated. This project examined the genomic signatures of that domestication using <i>Saccharomyces cerevisiae</i> populations experimentally evolved in a bread-dough environment.</p>
+
+<h2>Workflow</h2>
+<figure class="flow"><svg viewBox="0 0 640 474" width="100%" role="img" aria-label="Six-step variant calling and population genomics workflow"><g><rect x="1" y="4" width="638" height="46" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="31.5" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Raw Illumina reads</text></g><line x1="320" y1="50" x2="320" y2="69" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 68 L320 75 L325 68Z" fill="#D6D3D1"/><g><rect x="1" y="76" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="100" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Alignment and joint genotyping</text><text x="320" y="119" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">GATK best practices across sourdough and wild-type strains</text></g><line x1="320" y1="134" x2="320" y2="153" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 152 L320 159 L325 152Z" fill="#D6D3D1"/><g><rect x="1" y="160" width="638" height="58" rx="4" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="1.4"/><text x="320" y="184" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#4338CA">Filtering</text><text x="320" y="203" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">bcftools hard filters</text></g><line x1="320" y1="218" x2="320" y2="237" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 236 L320 243 L325 236Z" fill="#D6D3D1"/><g><rect x="1" y="244" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="268" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Variant annotation</text><text x="320" y="287" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">SnpEff and SnpSift</text></g><line x1="320" y1="302" x2="320" y2="321" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 320 L320 327 L325 320Z" fill="#D6D3D1"/><g><rect x="1" y="328" width="638" height="58" rx="4" fill="#FAFAF9" stroke="#E7E5E4" stroke-width="1.4"/><text x="320" y="352" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#1C1917">Copy number and loss-of-heterozygosity windowing</text><text x="320" y="371" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">Custom Python scripts</text></g><line x1="320" y1="386" x2="320" y2="405" stroke="#D6D3D1" stroke-width="1.6"/><path d="M315 404 L320 411 L325 404Z" fill="#D6D3D1"/><g><rect x="1" y="412" width="638" height="58" rx="4" fill="#FFFFFF" stroke="#D6D3D1" stroke-width="1.4"/><text x="320" y="436" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="14.5" font-weight="600" fill="#44403C">Population structure</text><text x="320" y="455" text-anchor="middle" font-family="Source Sans 3,Segoe UI,Helvetica,Arial,sans-serif" font-size="12.5" fill="#78716C">PCA and neighbour-joining trees in R</text></g></svg></figure>
+
+<h2>Results</h2>
+<table class="tbl"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>High-confidence variants</td><td>85 across 72 samples</td></tr><tr><td>Chromosomes analyzed</td><td>16</td></tr><tr><td>High-coverage CNV sites</td><td>26,207</td></tr><tr><td>Low-coverage CNV sites</td><td>33,867</td></tr></tbody></table>
+<figure class="fg wide treefig"><div class="treebox"><input type="checkbox" id="z23" class="zx"><label class="zin" for="z23" title="Click to enlarge"><img width="1450" height="1450"  alt="Circular annotated phylogenetic tree of 80 yeast isolates, colored by ancestral group: NAT, NAT unknown, outgroup sample, SD and other." loading="lazy" decoding="async" src="assets/circular-annotated-phylogenetic-tree-of-80-c1e32b.jpg"></label><img width="182" height="200" class="treekey"  alt="Tip color key: NAT in red, NAT unknown in olive, outgroup sample in green, SD in blue, other in violet." loading="lazy" decoding="async" src="assets/tip-color-key-nat-in-red-107c8b.jpg"></div><figcaption>Annotated phylogenetic tree across all sequenced isolates, tip-colored by ancestral group. The sourdough-derived isolates (SD, blue) form one large coherent clade while the nature-derived isolates (NAT, red) form another, with the outgroup samples branching separately near the root. A handful of isolates sit outside their expected group &mdash; those are the interesting ones.</figcaption></figure>
+
+<figure class="fg wide"><input type="checkbox" id="z25" class="zx"><label class="zin" for="z25" title="Click to enlarge"><img width="1400" height="687"  alt="Principal component analysis of genotypes colored by ancestral group, with ancestors marked as larger symbols." loading="lazy" decoding="async" src="assets/principal-component-analysis-of-genotypes-colored-b5b478.jpg"></label><figcaption>PCA of genotypes by ancestral group. PC1 alone accounts for 51.5% of variance and cleanly separates the 892B descendants (right) from the ERR1308867 descendants (left), with each ancestor sitting inside its own descendant cluster. The 942 ancestor sits well below both on PC2, and the ungrouped isolates fall between the clusters rather than within either.</figcaption></figure>
+<figure class="fg wide"><input type="checkbox" id="z26" class="zx"><label class="zin" for="z26" title="Click to enlarge"><img width="1650" height="892"  alt="Copy number heatmap across all 16 chromosomes, split into nature-derived isolates on top and sourdough-derived isolates below." loading="lazy" decoding="async" src="assets/copy-number-heatmap-across-all-16-1f9ff9.jpg"></label><figcaption>Copy number across all 16 chromosomes, nature-derived isolates above and sourdough-derived below. Red is amplification, blue is loss. The sourdough panel shows two striking shared amplifications &mdash; a block on chromosome 9 and a wider one spanning chromosome 12 &mdash; present across nearly every sourdough isolate and essentially absent from the nature panel. That is the clearest structural signature of the dough environment in the dataset.</figcaption></figure>
+<figure class="fg wide"><input type="checkbox" id="z27" class="zx"><label class="zin" for="z27" title="Click to enlarge"><img width="1650" height="802"  alt="Runs of heterozygosity heatmap across all 16 chromosomes for every isolate." loading="lazy" decoding="async" src="assets/runs-of-heterozygosity-heatmap-across-all-dc8843.jpg"></label><figcaption>Runs of heterozygosity across all 16 chromosomes for every isolate. Lighter vertical bands mark regions where heterozygosity is retained; the largely uniform background indicates loss of heterozygosity is not driving the population structure seen in the PCA.</figcaption></figure>
+<p>Credited co-author on the abstract submitted to the International Conference on Yeast Genetics and Molecular Biology, 2025. <a href="https://github.com/guptrishi01/Sourdough_Yeast_WGS_Analysis" target="_blank" rel="noopener noreferrer">Repository</a></p>
+</div>
+  <nav class="pager" aria-label="More">
+    <a href="#surgeonfish"><span>Previous</span>Visual Phenomics and Phylogenetic Inference</a>
+    <span></span>
+  </nav>
+</section>
+<section class="page" id="contact"><h1>Contact</h1><div class="cstrip">
+  <a href="mailto:guptrishi01@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg> guptrishi01@gmail.com</a>
+  <a href="https://github.com/guptrishi01" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.6 5.6.6 12c0 5 3.3 9.3 7.8 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.8-5.8 7.8-10.8C23.4 5.6 18.3.5 12 .5z"/></svg> github.com/guptrishi01</a>
+  <a href="https://www.linkedin.com/in/rishigupta106/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg> linkedin.com/in/rishigupta106</a>
+</div></section>
+<section class="page" id="home">
+  <div class="ov">
+      <h2>Overview</h2>
+      <div class="ovrow">
+      <div class="ovtext">
+      <p class="intro">My work is the computational half of genomics problems &mdash; predictive models on genomic and image data, pipelines for processing and analyzing sequence data, and internal web tools built for specific laboratory workflows. I spend about as much time testing whether a result holds up as producing it. Recent work spans antimicrobial resistance prediction from bacterial genomes, deep learning for laboratory imaging, variant calling and population genomics, and phylogenetic inference.</p>
+      <dl class="facts">
+        <div><dt>Education</dt><dd>MS Bioinformatics, UNC Charlotte (May 2027)<br>BS Computer Science, NC State (2025) &mdash; Magna Cum Laude, 3.62</dd></div>
+        <div><dt>Location</dt><dd>Charlotte, North Carolina &mdash; open to relocation</dd></div>
+      </dl>
+      </div>
+    <figure class="ov-pic"><img fetchpriority="high"  alt="Rishi Gupta" width="1000" height="1000" loading="eager" decoding="async" src="assets/rishi-gupta-a3310d.jpg"></figure>
+  </div>
+  </div>
+
+</section>
+</div></main>
+<footer><div class="wrap"><h2>Contact</h2><div class="cstrip">
+  <a href="mailto:guptrishi01@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg> guptrishi01@gmail.com</a>
+  <a href="https://github.com/guptrishi01" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.6 5.6.6 12c0 5 3.3 9.3 7.8 10.8.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.6-1.5 7.8-5.8 7.8-10.8C23.4 5.6 18.3.5 12 .5z"/></svg> github.com/guptrishi01</a>
+  <a href="https://www.linkedin.com/in/rishigupta106/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3-1.9 0-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zm1.8 13H3.5V9h3.6v11.4zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6C0 23.2.8 24 1.8 24h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg> linkedin.com/in/rishigupta106</a>
+</div><p class="copy">&copy; 2026 Rishi Gupta</p><nav class="fmap" aria-label="All projects"><h3>All projects</h3><ul><li><a href="#plaque-detection">PFU Plaque Detection</a></li><li><a href="#amr-prediction">Antimicrobial Resistance Prediction</a></li><li><a href="#wastewater-surveillance">Wastewater AMR Surveillance</a></li><li><a href="#panel-optimizer">Liquid Host Range Optimizer</a></li><li><a href="#supplementary-analysis">Supplementary Analysis</a></li><li><a href="#supplementary-tools">Supplementary Tools</a></li><li><a href="#surgeonfish">Visual Phenomics &amp; Phylogenetics</a></li><li><a href="#yeast">Sourdough Yeast Genomics</a></li></ul></nav></div></footer>
+</body></html>
